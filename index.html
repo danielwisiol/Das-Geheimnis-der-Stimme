@@ -340,13 +340,11 @@ em{font-style:italic}
 .active\:scale-95:active{transform:scale(0.95)}
 @media (min-width:640px){
 .sm\:col-span-3{grid-column:span 3/span 3}
-.sm\:block{display:block}
 .sm\:w-auto{width:auto}
 .sm\:flex-row{flex-direction:row}
 .sm\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
 .sm\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
 .sm\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}
-.sm\:gap-3{gap:0.75rem}
 .sm\:p-10{padding:2.5rem}
 .sm\:p-5{padding:1.25rem}
 .sm\:p-6{padding:1.5rem}
@@ -370,6 +368,7 @@ em{font-style:italic}
 .md\:text-lg{font-size:1.125rem;line-height:1.75rem}
 }
 @media (min-width:1024px){
+.lg\:block{display:block}
 .lg\:flex{display:flex}
 .lg\:min-w-0{min-width:0px}
 .lg\:flex-1{flex:1 1 0%}
@@ -447,6 +446,8 @@ em{font-style:italic}
         .grid-cell.playing { box-shadow: 0 0 0 3px #e11d48; }
         .step-head.playing { color: #e11d48; }
         .letter-tile { min-width: 46px; min-height: 52px; }
+        .toast { position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%); width: max-content; max-width: 92%; z-index: 60; padding: 14px 18px; border-radius: 14px; background: #161b33; color: #fde68a; border: 1px solid rgba(251,191,36,.5); box-shadow: 0 10px 30px rgba(0,0,0,.6); font-weight: 700; font-size: 15px; text-align: center; }
+        .toast.hidden { display: none; }
         /* ---- Tablet / Touch ---- */
         html { -webkit-text-size-adjust: 100%; overscroll-behavior-y: none; }
         body { padding-left: env(safe-area-inset-left); padding-right: env(safe-area-inset-right); padding-bottom: env(safe-area-inset-bottom); }
@@ -475,6 +476,7 @@ em{font-style:italic}
 <body class="font-sans antialiased selection:bg-gold-400 selection:text-stage-950">
 
     <div class="spotlight-beams"></div>
+    <div id="toast" role="status" class="toast hidden no-print"></div>
     <canvas id="confetti-canvas" class="fixed inset-0 pointer-events-none z-50 hidden"></canvas>
 
     <!-- KOPFZEILE -->
@@ -484,10 +486,11 @@ em{font-style:italic}
                 <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-gold-300 via-gold-500 to-velvet-600 flex items-center justify-center text-stage-950 font-serif font-extrabold text-2xl shadow-lg shrink-0">𝄞</div>
                 <div>
                     <h1 class="font-serif text-sm sm:text-base md:text-lg font-extrabold text-gold-300 tracking-wide leading-tight">Das Geheimnis der menschlichen Stimme</h1>
-                    <p class="text-xs text-slate-300/85 hidden sm:block">Teatro della Voce • Musik-Escape-Game (2. Klasse)</p>
+                    <p class="text-xs text-slate-300/85 hidden lg:block">Teatro della Voce • Musik-Escape-Game (2. Klasse)</p>
                 </div>
             </div>
-            <div class="flex items-center gap-2 sm:gap-3">
+            <div class="flex items-center gap-2">
+                <button id="sound-test-btn" onclick="soundTest()" aria-label="Ton testen" title="Ton testen" class="w-12 h-12 rounded-xl bg-stage-850 hover:bg-stage-800 border border-gold-400/35 flex items-center justify-center text-gold-300 transition shadow"><span class="text-xl">🔔</span></button>
                 <button id="mute-toggle-btn" onclick="toggleMute()" aria-label="Ton an oder aus" class="w-12 h-12 rounded-xl bg-stage-850 hover:bg-stage-800 border border-gold-400/35 flex items-center justify-center text-gold-300 transition shadow">
                     <span id="mute-icon" class="text-xl">🔊</span>
                 </button>
@@ -496,8 +499,8 @@ em{font-style:italic}
                     <span id="timer-display" class="font-mono font-bold text-base text-gold-300 tracking-wider">55:00</span>
                     <button id="timer-toggle-btn" onclick="toggleTimer()" aria-label="Timer pausieren" class="w-12 h-12 rounded-lg bg-stage-950/80 hover:bg-stage-800 text-slate-200 border border-white/15 flex items-center justify-center text-sm font-bold">⏸</button>
                 </div>
-                <button onclick="openLexicon('tab-1')" class="flex items-center gap-2 bg-gradient-to-r from-velvet-600 to-velvet-700 hover:from-velvet-500 hover:to-velvet-600 text-white border border-gold-300/40 px-4 py-2.5 min-h-[48px] rounded-xl text-sm font-bold shadow-lg shadow-velvet-600/25 transition cursor-pointer">
-                    <span class="text-lg">📖</span><span>Lexikon</span>
+                <button onclick="openLexicon('tab-1')" aria-label="Lexikon öffnen" title="Lexikon" class="flex items-center gap-2 bg-gradient-to-r from-velvet-600 to-velvet-700 hover:from-velvet-500 hover:to-velvet-600 text-white border border-gold-300/40 px-4 py-2.5 min-h-[48px] rounded-xl text-sm font-bold shadow-lg shadow-velvet-600/25 transition cursor-pointer">
+                    <span class="text-lg">📖</span><span class="hidden lg:inline">Lexikon</span>
                 </button>
             </div>
         </div>
@@ -1174,13 +1177,47 @@ em{font-style:italic}
                 const C = window.AudioContext || window.webkitAudioContext;
                 if (C) audioCtx = new C();
             }
-            if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume().catch(() => {});
+            if (audioCtx && audioCtx.state !== 'running') {
+                try { audioCtx.resume().catch(() => {}); } catch (e) {}
+            }
         }
-        ['touchstart', 'pointerdown', 'click'].forEach(evt => document.addEventListener(evt, initAudio, { once: true, passive: true }));
+        // Gemeinsamer Ausgang: lauter (x2.5) und mit Kompressor gegen Übersteuern
+        function getOut() {
+            if (!audioCtx.__out) {
+                const g = audioCtx.createGain(); g.gain.value = 2.2;
+                const c = audioCtx.createDynamicsCompressor();
+                g.connect(c); c.connect(audioCtx.destination);
+                audioCtx.__out = g;
+            }
+            return audioCtx.__out;
+        }
+        // Tablets schalten Ton erst nach dem Loslassen/Tippen frei: bei jedem Tippen erneut versuchen
+        ['touchend', 'pointerup', 'click', 'keydown'].forEach(evt => document.addEventListener(evt, initAudio, { passive: true }));
+
+        let toastTimer = null;
+        function showToast(msg) {
+            const t = document.getElementById('toast');
+            t.textContent = msg; t.classList.remove('hidden');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => t.classList.add('hidden'), 5000);
+        }
+        function soundTest() {
+            gameState.muted = false;
+            document.getElementById('mute-icon').textContent = '🔊';
+            initAudio();
+            if (!audioCtx) { showToast('⚠️ Dieser Browser kann keinen Ton abspielen. Bitte Chrome oder Safari nutzen.'); return; }
+            audioCtx.resume().then(() => {
+                playFeedbackSound('door');
+                showToast(audioCtx.state === 'running'
+                    ? '🔔 Test-Ton gespielt. Hörst du nichts? Dann die Medien-Lautstärke am Tablet prüfen.'
+                    : '⚠️ Ton ist noch blockiert. Bitte den Knopf noch einmal antippen.');
+            }).catch(() => showToast('⚠️ Ton ist blockiert. Bitte noch einmal antippen.'));
+        }
 
         function toggleMute() {
             gameState.muted = !gameState.muted;
             document.getElementById('mute-icon').textContent = gameState.muted ? '🔇' : '🔊';
+            if (!gameState.muted) soundTest();
         }
 
         function playClickSound() {
@@ -1193,7 +1230,7 @@ em{font-style:italic}
             osc.frequency.exponentialRampToValueAtTime(220, now + 0.04);
             gain.gain.setValueAtTime(0.08, now);
             gain.gain.exponentialRampToValueAtTime(0.001, now + 0.045);
-            osc.connect(gain); gain.connect(audioCtx.destination);
+            osc.connect(gain); gain.connect(getOut());
             osc.start(now); osc.stop(now + 0.05);
         }
 
@@ -1210,7 +1247,7 @@ em{font-style:italic}
             gain.gain.setValueAtTime(0.001, now);
             gain.gain.exponentialRampToValueAtTime(0.28, now + 0.05);
             gain.gain.exponentialRampToValueAtTime(0.001, now + duration);
-            o1.connect(gain); o2.connect(og); og.connect(gain); gain.connect(audioCtx.destination);
+            o1.connect(gain); o2.connect(og); og.connect(gain); gain.connect(getOut());
             o1.start(now); o2.start(now);
             o1.stop(now + duration + 0.05); o2.stop(now + duration + 0.05);
         }
@@ -1226,7 +1263,7 @@ em{font-style:italic}
             const g = audioCtx.createGain();
             g.gain.setValueAtTime(vol, now);
             g.gain.exponentialRampToValueAtTime(0.001, now + dur);
-            src.connect(f); f.connect(g); g.connect(audioCtx.destination);
+            src.connect(f); f.connect(g); g.connect(getOut());
             src.start(now);
         }
 
@@ -1239,10 +1276,19 @@ em{font-style:italic}
                 osc.type = 'sine';
                 osc.frequency.setValueAtTime(160, now);
                 osc.frequency.exponentialRampToValueAtTime(42, now + 0.22);
-                gain.gain.setValueAtTime(0.55, now);
+                gain.gain.setValueAtTime(0.42, now);
                 gain.gain.exponentialRampToValueAtTime(0.001, now + 0.24);
-                osc.connect(gain); gain.connect(audioCtx.destination);
+                osc.connect(gain); gain.connect(getOut());
                 osc.start(now); osc.stop(now + 0.25);
+                // Oberton, damit der Bass auch auf kleinen Tablet-Lautsprechern zu hören ist
+                const o2 = audioCtx.createOscillator(), g2 = audioCtx.createGain();
+                o2.type = 'triangle';
+                o2.frequency.setValueAtTime(330, now);
+                o2.frequency.exponentialRampToValueAtTime(110, now + 0.18);
+                g2.gain.setValueAtTime(0.28, now);
+                g2.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
+                o2.connect(g2); g2.connect(getOut());
+                o2.start(now); o2.stop(now + 0.22);
             } else if (key === 'T') {
                 noiseBurst(0.1, 'highpass', 6500, 0.32, 0.09);
             } else if (key === 'K') {
@@ -1255,7 +1301,7 @@ em{font-style:italic}
                 osc.frequency.exponentialRampToValueAtTime(680, now + 0.22);
                 gain.gain.setValueAtTime(0.22, now);
                 gain.gain.exponentialRampToValueAtTime(0.001, now + 0.24);
-                osc.connect(gain); gain.connect(audioCtx.destination);
+                osc.connect(gain); gain.connect(getOut());
                 osc.start(now); osc.stop(now + 0.25);
             }
         }
@@ -1273,7 +1319,7 @@ em{font-style:italic}
                     osc.frequency.setValueAtTime(f, now + i * step);
                     gain.gain.setValueAtTime(0.18, now + i * step);
                     gain.gain.exponentialRampToValueAtTime(0.001, now + i * step + 0.7);
-                    osc.connect(gain); gain.connect(audioCtx.destination);
+                    osc.connect(gain); gain.connect(getOut());
                     osc.start(now + i * step); osc.stop(now + i * step + 0.75);
                 });
             } else {
@@ -1283,7 +1329,7 @@ em{font-style:italic}
                 osc.frequency.linearRampToValueAtTime(115, now + 0.24);
                 gain.gain.setValueAtTime(0.13, now);
                 gain.gain.exponentialRampToValueAtTime(0.001, now + 0.28);
-                osc.connect(gain); gain.connect(audioCtx.destination);
+                osc.connect(gain); gain.connect(getOut());
                 osc.start(now); osc.stop(now + 0.3);
             }
         }
