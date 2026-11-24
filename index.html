@@ -1,0 +1,1983 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Das Geheimnis der menschlichen Stimme – Musik Escape Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+/* Statisches Stylesheet (nur genutzte Utility-Klassen), kein CDN nötig */
+*,::before,::after{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}
+html{line-height:1.5;-webkit-text-size-adjust:100%;tab-size:4;font-family:"Plus Jakarta Sans",system-ui,sans-serif}
+body{margin:0;line-height:inherit}
+h1,h2,h3,h4,p,ul,ol,blockquote,figure{margin:0}
+h1,h2,h3,h4{font-size:inherit;font-weight:inherit}
+ul,ol{list-style:none;padding:0}
+table{border-collapse:collapse;border-color:inherit;text-indent:0}
+th{text-align:inherit}
+button,input,select,textarea{font-family:inherit;font-size:100%;font-weight:inherit;line-height:inherit;color:inherit;margin:0;padding:0}
+button,select{text-transform:none}
+button{-webkit-appearance:button;background-color:transparent;background-image:none;cursor:pointer}
+button:disabled{cursor:default}
+input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}
+svg,img,canvas{display:block;vertical-align:middle}
+svg,img{max-width:100%;height:auto}
+canvas{max-width:none}
+strong{font-weight:bolder}
+em{font-style:italic}
+[hidden]{display:none}
+
+.absolute{position:absolute}
+.fixed{position:fixed}
+.relative{position:relative}
+.sticky{position:sticky}
+.bottom-0{bottom:0px}
+.bottom-1{bottom:0.25rem}
+.inset-0{inset:0px}
+.top-0{top:0px}
+.top-1{top:0.25rem}
+.z-10{z-index:10}
+.z-40{z-index:40}
+.z-50{z-index:50}
+.col-span-2{grid-column:span 2/span 2}
+.mx-auto{margin-left:auto;margin-right:auto}
+.mt-0\.5{margin-top:0.125rem}
+.mt-1{margin-top:0.25rem}
+.mb-1{margin-bottom:0.25rem}
+.mb-2{margin-bottom:0.5rem}
+.block{display:block}
+.inline-block{display:inline-block}
+.flex{display:flex}
+.inline-flex{display:inline-flex}
+.grid{display:grid}
+.hidden{display:none}
+.h-11{height:2.75rem}
+.h-12{height:3rem}
+.h-14{height:3.5rem}
+.h-24{height:6rem}
+.h-4{height:1rem}
+.h-7{height:1.75rem}
+.h-8{height:2rem}
+.h-9{height:2.25rem}
+.h-full{height:100%}
+.w-11{width:2.75rem}
+.w-12{width:3rem}
+.w-14{width:3.5rem}
+.w-24{width:6rem}
+.w-32{width:8rem}
+.w-40{width:10rem}
+.w-5{width:1.25rem}
+.w-7{width:1.75rem}
+.w-8{width:2rem}
+.w-full{width:100%}
+.max-h-\[90vh\]{max-height:90vh}
+.max-w-2xl{max-width:42rem}
+.max-w-3xl{max-width:48rem}
+.max-w-4xl{max-width:56rem}
+.max-w-5xl{max-width:64rem}
+.max-w-6xl{max-width:72rem}
+.max-w-lg{max-width:32rem}
+.max-w-md{max-width:28rem}
+.max-w-xl{max-width:36rem}
+.min-h-\[104px\]{min-height:104px}
+.min-h-\[44px\]{min-height:44px}
+.min-h-\[46px\]{min-height:46px}
+.min-h-\[48px\]{min-height:48px}
+.min-h-\[50px\]{min-height:50px}
+.min-h-\[58px\]{min-height:58px}
+.min-h-\[64px\]{min-height:64px}
+.min-h-\[70px\]{min-height:70px}
+.min-w-0{min-width:0px}
+.min-w-\[150px\]{min-width:150px}
+.min-w-\[260px\]{min-width:260px}
+.min-w-\[520px\]{min-width:520px}
+.flex-1{flex:1 1 0%}
+.flex-col{flex-direction:column}
+.flex-wrap{flex-wrap:wrap}
+.items-center{align-items:center}
+.items-start{align-items:flex-start}
+.items-stretch{align-items:stretch}
+.justify-between{justify-content:space-between}
+.justify-center{justify-content:center}
+.shrink-0{flex-shrink:0}
+.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}
+.grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.gap-1{gap:0.25rem}
+.gap-1\.5{gap:0.375rem}
+.gap-2{gap:0.5rem}
+.gap-3{gap:0.75rem}
+.gap-3\.5{gap:0.875rem}
+.gap-4{gap:1rem}
+.gap-5{gap:1.25rem}
+.space-y-1>:not([hidden])~:not([hidden]){margin-top:0.25rem}
+.space-y-1\.5>:not([hidden])~:not([hidden]){margin-top:0.375rem}
+.space-y-2>:not([hidden])~:not([hidden]){margin-top:0.5rem}
+.space-y-2\.5>:not([hidden])~:not([hidden]){margin-top:0.625rem}
+.space-y-3>:not([hidden])~:not([hidden]){margin-top:0.75rem}
+.space-y-4>:not([hidden])~:not([hidden]){margin-top:1rem}
+.space-y-5>:not([hidden])~:not([hidden]){margin-top:1.25rem}
+.space-y-6>:not([hidden])~:not([hidden]){margin-top:1.5rem}
+.space-y-7>:not([hidden])~:not([hidden]){margin-top:1.75rem}
+.overflow-hidden{overflow:hidden}
+.overflow-x-auto{overflow-x:auto}
+.overflow-y-auto{overflow-y:auto}
+.rounded-2xl{border-radius:1rem}
+.rounded-3xl{border-radius:1.5rem}
+.rounded-full{border-radius:9999px}
+.rounded-lg{border-radius:0.5rem}
+.rounded-xl{border-radius:0.75rem}
+.border{border-width:1px}
+.border-2{border-width:2px}
+.border-4{border-width:4px}
+.border-b{border-bottom-width:1px}
+.border-b-2{border-bottom-width:2px}
+.border-double{border-style:double}
+.border-t{border-top-width:1px}
+.border-x-2{border-left-width:2px;border-right-width:2px}
+.border-amber-700{border-color:#b45309}
+.border-amber-700\/20{border-color:rgb(180 83 9 / 0.2)}
+.border-amber-700\/25{border-color:rgb(180 83 9 / 0.25)}
+.border-amber-700\/30{border-color:rgb(180 83 9 / 0.3)}
+.border-amber-700\/35{border-color:rgb(180 83 9 / 0.35)}
+.border-amber-700\/40{border-color:rgb(180 83 9 / 0.4)}
+.border-amber-700\/70{border-color:rgb(180 83 9 / 0.7)}
+.border-emerald-400{border-color:#34d399}
+.border-emerald-400\/50{border-color:rgb(52 211 153 / 0.5)}
+.border-emerald-400\/60{border-color:rgb(52 211 153 / 0.6)}
+.border-gold-300\/40{border-color:rgb(253 230 138 / 0.4)}
+.border-gold-300\/70{border-color:rgb(253 230 138 / 0.7)}
+.border-gold-400{border-color:#fbbf24}
+.border-gold-400\/15{border-color:rgb(251 191 36 / 0.15)}
+.border-gold-400\/20{border-color:rgb(251 191 36 / 0.2)}
+.border-gold-400\/25{border-color:rgb(251 191 36 / 0.25)}
+.border-gold-400\/30{border-color:rgb(251 191 36 / 0.3)}
+.border-gold-400\/35{border-color:rgb(251 191 36 / 0.35)}
+.border-gold-400\/40{border-color:rgb(251 191 36 / 0.4)}
+.border-gold-400\/45{border-color:rgb(251 191 36 / 0.45)}
+.border-gold-400\/50{border-color:rgb(251 191 36 / 0.5)}
+.border-rose-400{border-color:#fb7185}
+.border-rose-400\/40{border-color:rgb(251 113 133 / 0.4)}
+.border-rose-500\/60{border-color:rgb(244 63 94 / 0.6)}
+.border-sky-400{border-color:#38bdf8}
+.border-velvet-500{border-color:#f43f5e}
+.border-velvet-500\/45{border-color:rgb(244 63 94 / 0.45)}
+.border-velvet-600\/60{border-color:rgb(225 29 72 / 0.6)}
+.border-white\/10{border-color:rgb(255 255 255 / 0.1)}
+.border-white\/15{border-color:rgb(255 255 255 / 0.15)}
+.border-white\/20{border-color:rgb(255 255 255 / 0.2)}
+.bg-amber-100{background-color:#fef3c7}
+.bg-amber-200\/85{background-color:rgb(253 230 138 / 0.85)}
+.bg-clip-text{-webkit-background-clip:text;background-clip:text}
+.bg-emerald-400{background-color:#34d399}
+.bg-emerald-500\/15{background-color:rgb(16 185 129 / 0.15)}
+.bg-emerald-500\/20{background-color:rgb(16 185 129 / 0.2)}
+.bg-emerald-500\/30{background-color:rgb(16 185 129 / 0.3)}
+.bg-emerald-950\/85{background-color:rgb(2 44 34 / 0.85)}
+.bg-gold-400{background-color:#fbbf24}
+.bg-gold-400\/20{background-color:rgb(251 191 36 / 0.2)}
+.bg-rose-100{background-color:#ffe4e6}
+.bg-rose-500{background-color:#f43f5e}
+.bg-rose-950\/85{background-color:rgb(76 5 25 / 0.85)}
+.bg-sky-100{background-color:#e0f2fe}
+.bg-stage-800{background-color:#1e1b4b}
+.bg-stage-850{background-color:#161b33}
+.bg-stage-850\/95{background-color:rgb(22 27 51 / 0.95)}
+.bg-stage-900{background-color:#0f172a}
+.bg-stage-900\/90{background-color:rgb(15 23 42 / 0.9)}
+.bg-stage-900\/95{background-color:rgb(15 23 42 / 0.95)}
+.bg-stage-950{background-color:#080c17}
+.bg-stage-950\/60{background-color:rgb(8 12 23 / 0.6)}
+.bg-stage-950\/80{background-color:rgb(8 12 23 / 0.8)}
+.bg-stage-950\/85{background-color:rgb(8 12 23 / 0.85)}
+.bg-stage-950\/90{background-color:rgb(8 12 23 / 0.9)}
+.bg-stage-950\/95{background-color:rgb(8 12 23 / 0.95)}
+.bg-velvet-600{background-color:#e11d48}
+.bg-velvet-600\/25{background-color:rgb(225 29 72 / 0.25)}
+.bg-velvet-700\/20{background-color:rgb(190 18 60 / 0.2)}
+.bg-white\/25{background-color:rgb(255 255 255 / 0.25)}
+.bg-white\/75{background-color:rgb(255 255 255 / 0.75)}
+.bg-white\/80{background-color:rgb(255 255 255 / 0.8)}
+.bg-white\/85{background-color:rgb(255 255 255 / 0.85)}
+.bg-gradient-to-b{background-image:linear-gradient(to bottom,var(--tw-gradient-stops))}
+.bg-gradient-to-br{background-image:linear-gradient(to bottom right,var(--tw-gradient-stops))}
+.bg-gradient-to-r{background-image:linear-gradient(to right,var(--tw-gradient-stops))}
+.from-gold-300{--tw-gradient-from:#fde68a;--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to,rgb(253 230 138 / 0))}
+.from-gold-400{--tw-gradient-from:#fbbf24;--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to,rgb(251 191 36 / 0))}
+.from-gold-400\/25{--tw-gradient-from:rgb(251 191 36 / 0.25);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to,rgb(251 191 36 / 0))}
+.from-stage-800\/95{--tw-gradient-from:rgb(30 27 75 / 0.95);--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to,rgb(30 27 75 / 0))}
+.from-velvet-600{--tw-gradient-from:#e11d48;--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to,rgb(225 29 72 / 0))}
+.via-gold-400{--tw-gradient-stops:var(--tw-gradient-from),#fbbf24,var(--tw-gradient-to,transparent)}
+.via-gold-500{--tw-gradient-stops:var(--tw-gradient-from),#f59e0b,var(--tw-gradient-to,transparent)}
+.to-amber-200{--tw-gradient-to:#fde68a}
+.to-emerald-400{--tw-gradient-to:#34d399}
+.to-stage-950{--tw-gradient-to:#080c17}
+.to-velvet-600{--tw-gradient-to:#e11d48}
+.to-velvet-600\/25{--tw-gradient-to:rgb(225 29 72 / 0.25)}
+.to-velvet-700{--tw-gradient-to:#be123c}
+.p-2{padding:0.5rem}
+.p-3{padding:0.75rem}
+.p-3\.5{padding:0.875rem}
+.p-4{padding:1rem}
+.p-5{padding:1.25rem}
+.p-6{padding:1.5rem}
+.px-1{padding-left:0.25rem;padding-right:0.25rem}
+.px-2{padding-left:0.5rem;padding-right:0.5rem}
+.px-2\.5{padding-left:0.625rem;padding-right:0.625rem}
+.px-3{padding-left:0.75rem;padding-right:0.75rem}
+.px-3\.5{padding-left:0.875rem;padding-right:0.875rem}
+.px-4{padding-left:1rem;padding-right:1rem}
+.px-5{padding-left:1.25rem;padding-right:1.25rem}
+.px-6{padding-left:1.5rem;padding-right:1.5rem}
+.px-7{padding-left:1.75rem;padding-right:1.75rem}
+.px-8{padding-left:2rem;padding-right:2rem}
+.py-1{padding-top:0.25rem;padding-bottom:0.25rem}
+.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}
+.py-2{padding-top:0.5rem;padding-bottom:0.5rem}
+.py-2\.5{padding-top:0.625rem;padding-bottom:0.625rem}
+.py-3{padding-top:0.75rem;padding-bottom:0.75rem}
+.py-3\.5{padding-top:0.875rem;padding-bottom:0.875rem}
+.py-4{padding-top:1rem;padding-bottom:1rem}
+.py-6{padding-top:1.5rem;padding-bottom:1.5rem}
+.pt-1{padding-top:0.25rem}
+.pt-2{padding-top:0.5rem}
+.pt-4{padding-top:1rem}
+.pt-6{padding-top:1.5rem}
+.pb-1{padding-bottom:0.25rem}
+.pb-4{padding-bottom:1rem}
+.pl-4{padding-left:1rem}
+.pl-5{padding-left:1.25rem}
+.pr-3{padding-right:0.75rem}
+.align-middle{vertical-align:middle}
+.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.font-bold{font-weight:700}
+.font-extrabold{font-weight:800}
+.font-medium{font-weight:500}
+.font-mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}
+.font-sans{font-family:"Plus Jakarta Sans",system-ui,sans-serif}
+.font-semibold{font-weight:600}
+.font-serif{font-family:Cinzel,Georgia,serif}
+.italic{font-style:italic}
+.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.uppercase{text-transform:uppercase}
+.whitespace-nowrap{white-space:nowrap}
+.text-2xl{font-size:1.5rem;line-height:2rem}
+.text-3xl{font-size:1.875rem;line-height:2.25rem}
+.text-4xl{font-size:2.25rem;line-height:2.5rem}
+.text-\[11px\]{font-size:11px}
+.text-base{font-size:1rem;line-height:1.5rem}
+.text-center{text-align:center}
+.text-left{text-align:left}
+.text-lg{font-size:1.125rem;line-height:1.75rem}
+.text-sm{font-size:0.875rem;line-height:1.25rem}
+.text-xl{font-size:1.25rem;line-height:1.75rem}
+.text-xs{font-size:0.75rem;line-height:1rem}
+.text-amber-700{color:#b45309}
+.text-amber-800{color:#92400e}
+.text-amber-900{color:#78350f}
+.text-emerald-200{color:#a7f3d0}
+.text-emerald-300{color:#6ee7b7}
+.text-emerald-400{color:#34d399}
+.text-gold-200{color:#fef3c7}
+.text-gold-300{color:#fde68a}
+.text-gold-300\/80{color:rgb(253 230 138 / 0.8)}
+.text-gold-400{color:#fbbf24}
+.text-indigo-800{color:#3730a3}
+.text-rose-200{color:#fecdd3}
+.text-rose-300{color:#fda4af}
+.text-rose-400{color:#fb7185}
+.text-slate-100{color:#f1f5f9}
+.text-slate-200{color:#e2e8f0}
+.text-slate-300{color:#cbd5e1}
+.text-slate-300\/85{color:rgb(203 213 225 / 0.85)}
+.text-slate-400{color:#94a3b8}
+.text-slate-500{color:#64748b}
+.text-stage-900{color:#0f172a}
+.text-stage-950{color:#080c17}
+.text-transparent{color:transparent}
+.text-velvet-500{color:#f43f5e}
+.text-velvet-700{color:#be123c}
+.text-white{color:#ffffff}
+.leading-loose{line-height:2}
+.leading-none{line-height:1}
+.leading-relaxed{line-height:1.625}
+.leading-snug{line-height:1.375}
+.leading-tight{line-height:1.25}
+.tracking-\[0\.22em\]{letter-spacing:0.22em}
+.tracking-\[0\.4em\]{letter-spacing:0.4em}
+.tracking-wide{letter-spacing:0.025em}
+.tracking-wider{letter-spacing:0.05em}
+.tracking-widest{letter-spacing:0.1em}
+.cursor-not-allowed{cursor:not-allowed}
+.cursor-pointer{cursor:pointer}
+.list-decimal{list-style-type:decimal}
+.list-disc{list-style-type:disc}
+.pointer-events-none{pointer-events:none}
+.shadow{--tw-shadow:0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}
+.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}
+.shadow-inner{--tw-shadow:inset 0 2px 4px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:inset 0 2px 4px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}
+.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}
+.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)}
+.shadow-velvet-600\/25{--tw-shadow-color:rgb(225 29 72 / 0.25);--tw-shadow:var(--tw-shadow-colored)}
+.opacity-80{opacity:0.8}
+.backdrop-blur-md{-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.backdrop-blur-xl{-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px)}
+.transition{transition-property:color,background-color,border-color,text-decoration-color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;transition-timing-function:cubic-bezier(0.4,0,0.2,1);transition-duration:150ms}
+.focus\:border-gold-300:focus{border-color:#fde68a}
+.hover\:bg-emerald-500\/25:hover{background-color:rgb(16 185 129 / 0.25)}
+.hover\:bg-stage-800:hover{background-color:#1e1b4b}
+.hover\:bg-velvet-500:hover{background-color:#f43f5e}
+.hover\:bg-velvet-600:hover{background-color:#e11d48}
+.selection\:bg-gold-400 *::selection,.selection\:bg-gold-400::selection{background-color:#fbbf24}
+.hover\:from-velvet-500:hover{--tw-gradient-from:#f43f5e;--tw-gradient-stops:var(--tw-gradient-from),var(--tw-gradient-to,rgb(244 63 94 / 0))}
+.hover\:to-velvet-600:hover{--tw-gradient-to:#e11d48}
+.selection\:text-stage-950 *::selection,.selection\:text-stage-950::selection{color:#080c17}
+.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}
+.disabled\:opacity-30:disabled{opacity:0.3}
+.active\:scale-95:active{transform:scale(0.95)}
+@media (min-width:640px){
+.sm\:col-span-3{grid-column:span 3/span 3}
+.sm\:block{display:block}
+.sm\:w-auto{width:auto}
+.sm\:flex-row{flex-direction:row}
+.sm\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.sm\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.sm\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.sm\:gap-3{gap:0.75rem}
+.sm\:p-10{padding:2.5rem}
+.sm\:p-5{padding:1.25rem}
+.sm\:p-6{padding:1.5rem}
+.sm\:p-8{padding:2rem}
+.sm\:p-9{padding:2.25rem}
+.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}
+.sm\:py-8{padding-top:2rem;padding-bottom:2rem}
+.sm\:text-2xl{font-size:1.5rem;line-height:2rem}
+.sm\:text-3xl{font-size:1.875rem;line-height:2.25rem}
+.sm\:text-4xl{font-size:2.25rem;line-height:2.5rem}
+.sm\:text-5xl{font-size:3rem;line-height:1}
+.sm\:text-base{font-size:1rem;line-height:1.5rem}
+.sm\:text-lg{font-size:1.125rem;line-height:1.75rem}
+.sm\:text-sm{font-size:0.875rem;line-height:1.25rem}
+}
+@media (min-width:768px){
+.md\:col-span-2{grid-column:span 2/span 2}
+.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.md\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.md\:grid-cols-6{grid-template-columns:repeat(6,minmax(0,1fr))}
+.md\:text-lg{font-size:1.125rem;line-height:1.75rem}
+}
+@media (min-width:1024px){
+.lg\:flex{display:flex}
+.lg\:min-w-0{min-width:0px}
+.lg\:flex-1{flex:1 1 0%}
+.lg\:grid-cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+    </style>
+
+    <style>
+        * { -webkit-tap-highlight-color: transparent; box-sizing: border-box; }
+        html, body { touch-action: manipulation; }
+        body {
+            background-color: #080c17;
+            background-image:
+                radial-gradient(ellipse 75% 45% at 50% -10%, rgba(251, 191, 36, 0.22) 0%, transparent 70%),
+                radial-gradient(circle at 12% 30%, rgba(225, 29, 72, 0.14) 0%, transparent 45%),
+                radial-gradient(circle at 88% 75%, rgba(79, 70, 229, 0.18) 0%, transparent 50%),
+                linear-gradient(180deg, #0f172a 0%, #1e1b4b 52%, #080c17 100%);
+            min-height: 100vh; color: #f8fafc; overflow-x: hidden; font-size: 16px;
+        }
+        input, select, textarea, button { font-size: 16px; touch-action: manipulation; }
+        .no-select, button, .hotspot-btn, .grid-cell {
+            user-select: none; -webkit-user-select: none; -webkit-touch-callout: none;
+        }
+        .spotlight-beams {
+            position: fixed; inset: 0; pointer-events: none; z-index: 0;
+            background:
+                conic-gradient(from 160deg at 20% -5%, transparent 0deg, rgba(251, 191, 36, 0.05) 14deg, transparent 28deg),
+                conic-gradient(from 185deg at 80% -5%, transparent 0deg, rgba(251, 191, 36, 0.05) 14deg, transparent 28deg);
+        }
+        .glass-stage-card {
+            background: linear-gradient(165deg, rgba(30, 27, 75, 0.78) 0%, rgba(15, 23, 42, 0.92) 100%);
+            backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(251, 191, 36, 0.28);
+            box-shadow: 0 22px 50px -12px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+        .glass-subpanel {
+            background: rgba(8, 12, 23, 0.62);
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.35);
+        }
+        .btn-stage-gold {
+            background: linear-gradient(135deg, #fde68a 0%, #f59e0b 50%, #d97706 100%);
+            color: #0f172a; font-weight: 800; min-height: 52px;
+            box-shadow: 0 6px 20px rgba(245, 158, 11, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.65);
+            transition: transform 0.15s ease;
+        }
+        .btn-stage-gold:active { transform: scale(0.97); }
+        .dossier-parchment {
+            background: linear-gradient(145deg, #fffbeb 0%, #fef3c7 55%, #fde68a 100%);
+            color: #1e1b4b; border: 2px solid #d97706; box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45);
+        }
+        .hotspot-btn {
+            position: absolute; width: 60px; height: 60px; margin-left: -30px; margin-top: -30px;
+            border-radius: 9999px; display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: transform 0.18s ease;
+            border: 2px dashed rgba(251, 191, 36, 0.38); background: rgba(251, 191, 36, 0.08);
+        }
+        .hotspot-btn:active { transform: scale(0.92); }
+        .hotspot-found-true { border: 3px solid #34d399 !important; background: rgba(16, 185, 129, 0.28) !important; box-shadow: 0 0 18px rgba(52, 211, 153, 0.55); }
+        .hotspot-found-decoy { border: 3px solid #fb7185 !important; background: rgba(244, 63, 94, 0.25) !important; }
+                .mirrored-text { display: inline-block; transform: scaleX(-1); letter-spacing: 0.04em; }
+        @keyframes spotlightPulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.55); }
+            50% { box-shadow: 0 0 18px 4px rgba(251, 191, 36, 0.35); }
+        }
+        .active-portal-glow { animation: spotlightPulse 2.4s infinite; }
+        @keyframes gentleShake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-6px); }
+            40%, 80% { transform: translateX(6px); }
+        }
+        .animate-shake { animation: gentleShake 0.4s ease-in-out; }
+        .grid-cell { min-height: 48px; border-radius: 10px; border: 2px solid rgba(255,255,255,0.15); background: #0f172a; transition: background .12s, border-color .12s; }
+        .grid-cell.on { background: linear-gradient(135deg, #fde68a, #f59e0b); border-color: #fde68a; }
+        .grid-cell.playing { box-shadow: 0 0 0 3px #e11d48; }
+        .step-head.playing { color: #e11d48; }
+        .letter-tile { min-width: 46px; min-height: 52px; }
+        /* ---- Tablet / Touch ---- */
+        html { -webkit-text-size-adjust: 100%; overscroll-behavior-y: none; }
+        body { padding-left: env(safe-area-inset-left); padding-right: env(safe-area-inset-right); padding-bottom: env(safe-area-inset-bottom); }
+        .mirror-box { touch-action: pan-y; }
+        #r5-hold-btn { touch-action: none; }
+        #opera-nav-scroll { scrollbar-width: thin; -webkit-overflow-scrolling: touch; }
+        select { min-height: 52px; }
+        button, select, input { min-height: 48px; }
+        @media (pointer: coarse) {
+            .hotspot-btn { width: 72px; height: 72px; margin-left: -36px; margin-top: -36px; }
+            .grid-cell { min-height: 52px; }
+            .letter-tile { min-height: 56px; }
+        }
+        @media (min-width: 768px) and (max-width: 1100px) {
+            main { padding-left: 1.5rem; padding-right: 1.5rem; }
+        }
+
+
+        @media print {
+            body { background: #ffffff !important; color: #000000 !important; }
+            .no-print, .spotlight-beams, #confetti-canvas { display: none !important; }
+            #certificate-card { box-shadow: none !important; border: 4px double #b45309 !important; margin: 0 auto !important; width: 100% !important; max-width: 100% !important; }
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-gold-400 selection:text-stage-950">
+
+    <div class="spotlight-beams"></div>
+    <canvas id="confetti-canvas" class="fixed inset-0 pointer-events-none z-50 hidden"></canvas>
+
+    <!-- KOPFZEILE -->
+    <header class="sticky top-0 z-40 bg-stage-950/90 backdrop-blur-xl border-b border-gold-400/25 shadow-2xl no-print">
+        <div class="max-w-6xl mx-auto px-3 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-gold-300 via-gold-500 to-velvet-600 flex items-center justify-center text-stage-950 font-serif font-extrabold text-2xl shadow-lg shrink-0">𝄞</div>
+                <div>
+                    <h1 class="font-serif text-sm sm:text-base md:text-lg font-extrabold text-gold-300 tracking-wide leading-tight">Das Geheimnis der menschlichen Stimme</h1>
+                    <p class="text-xs text-slate-300/85 hidden sm:block">Teatro della Voce • Musik-Escape-Game (2. Klasse)</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2 sm:gap-3">
+                <button id="mute-toggle-btn" onclick="toggleMute()" aria-label="Ton an oder aus" class="w-12 h-12 rounded-xl bg-stage-850 hover:bg-stage-800 border border-gold-400/35 flex items-center justify-center text-gold-300 transition shadow">
+                    <span id="mute-icon" class="text-xl">🔊</span>
+                </button>
+                <div class="flex items-center gap-2 bg-stage-850/95 border border-gold-400/35 px-3 py-1.5 rounded-xl min-h-[48px] shadow-inner">
+                    <span class="text-gold-400 text-base">⏳</span>
+                    <span id="timer-display" class="font-mono font-bold text-base text-gold-300 tracking-wider">55:00</span>
+                    <button id="timer-toggle-btn" onclick="toggleTimer()" aria-label="Timer pausieren" class="w-12 h-12 rounded-lg bg-stage-950/80 hover:bg-stage-800 text-slate-200 border border-white/15 flex items-center justify-center text-sm font-bold">⏸</button>
+                </div>
+                <button onclick="openLexicon('tab-1')" class="flex items-center gap-2 bg-gradient-to-r from-velvet-600 to-velvet-700 hover:from-velvet-500 hover:to-velvet-600 text-white border border-gold-300/40 px-4 py-2.5 min-h-[48px] rounded-xl text-sm font-bold shadow-lg shadow-velvet-600/25 transition cursor-pointer">
+                    <span class="text-lg">📖</span><span>Lexikon</span>
+                </button>
+            </div>
+        </div>
+
+        </header>
+
+    <div id="opera-map-bar" class="hidden bg-stage-900/95 border-b border-gold-400/25 px-3 sm:px-6 py-2.5 no-print">
+            <div class="max-w-6xl mx-auto">
+                <div class="hidden lg:flex items-center justify-between text-xs uppercase tracking-wider text-gold-300/80 font-bold mb-2 px-1">
+                    <span>🎭 Lageplan</span>
+                    <span id="map-location-label"></span>
+                </div>
+                <div id="opera-nav-scroll" class="flex gap-2 overflow-x-auto pb-1">
+                    <button onclick="navigateToRoom(1)" id="nav-room-1" class="room-nav-btn shrink-0 min-w-[150px] lg:min-w-0 lg:flex-1 min-h-[48px] rounded-xl p-2 border text-left transition flex items-center gap-2"><span class="status-badge w-7 h-7 rounded-lg flex items-center justify-center text-sm font-extrabold shrink-0">🫁</span><div class="min-w-0"><div class="text-[11px] opacity-80 leading-none">Raum 1</div><div class="text-xs font-bold truncate">Stimm-Maschine</div></div></button>
+                    <button onclick="navigateToRoom(2)" id="nav-room-2" class="room-nav-btn shrink-0 min-w-[150px] lg:min-w-0 lg:flex-1 min-h-[48px] rounded-xl p-2 border text-left transition flex items-center gap-2"><span class="status-badge w-7 h-7 rounded-lg flex items-center justify-center text-sm font-extrabold shrink-0">🔒</span><div class="min-w-0"><div class="text-[11px] opacity-80 leading-none">Raum 2</div><div class="text-xs font-bold truncate">Stimmbruch</div></div></button>
+                    <button onclick="navigateToRoom(3)" id="nav-room-3" class="room-nav-btn shrink-0 min-w-[150px] lg:min-w-0 lg:flex-1 min-h-[48px] rounded-xl p-2 border text-left transition flex items-center gap-2"><span class="status-badge w-7 h-7 rounded-lg flex items-center justify-center text-sm font-extrabold shrink-0">🔒</span><div class="min-w-0"><div class="text-[11px] opacity-80 leading-none">Raum 3</div><div class="text-xs font-bold truncate">Stimmlagen</div></div></button>
+                    <button onclick="navigateToRoom(4)" id="nav-room-4" class="room-nav-btn shrink-0 min-w-[150px] lg:min-w-0 lg:flex-1 min-h-[48px] rounded-xl p-2 border text-left transition flex items-center gap-2"><span class="status-badge w-7 h-7 rounded-lg flex items-center justify-center text-sm font-extrabold shrink-0">🔒</span><div class="min-w-0"><div class="text-[11px] opacity-80 leading-none">Raum 4</div><div class="text-xs font-bold truncate">Beatbox-Studio</div></div></button>
+                    <button onclick="navigateToRoom(5)" id="nav-room-5" class="room-nav-btn shrink-0 min-w-[150px] lg:min-w-0 lg:flex-1 min-h-[48px] rounded-xl p-2 border text-left transition flex items-center gap-2"><span class="status-badge w-7 h-7 rounded-lg flex items-center justify-center text-sm font-extrabold shrink-0">🔒</span><div class="min-w-0"><div class="text-[11px] opacity-80 leading-none">Raum 5</div><div class="text-xs font-bold truncate">Belcanto-Saal</div></div></button>
+                    <button onclick="navigateToRoom(6)" id="nav-room-6" class="room-nav-btn shrink-0 min-w-[150px] lg:min-w-0 lg:flex-1 min-h-[48px] rounded-xl p-2 border text-left transition flex items-center gap-2"><span class="status-badge w-7 h-7 rounded-lg flex items-center justify-center text-sm font-extrabold shrink-0">🔒</span><div class="min-w-0"><div class="text-[11px] opacity-80 leading-none">Raum 6</div><div class="text-xs font-bold truncate">Kastraten-Loge</div></div></button>
+                    <button onclick="navigateToRoom(7)" id="nav-room-7" class="room-nav-btn shrink-0 min-w-[150px] lg:min-w-0 lg:flex-1 min-h-[48px] rounded-xl p-2 border text-left transition flex items-center gap-2"><span class="status-badge w-7 h-7 rounded-lg flex items-center justify-center text-sm font-extrabold shrink-0">🔒</span><div class="min-w-0"><div class="text-[11px] opacity-80 leading-none">Raum 7</div><div class="text-xs font-bold truncate">Werkstatt</div></div></button>
+                </div>
+            </div>
+        </div>
+
+
+    <main class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
+
+        <!-- START -->
+        <section id="intro-screen" class="glass-stage-card rounded-3xl p-6 sm:p-10 text-center space-y-7">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-velvet-600/25 border border-velvet-500/45 text-gold-300 text-xs sm:text-sm uppercase tracking-wider font-bold">
+                ✨ Musik-Escape • 2. Klasse
+            </div>
+            <div class="space-y-3 max-w-2xl mx-auto">
+                <h2 class="font-serif text-3xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-gold-300 via-gold-400 to-amber-200 leading-tight">Eingesperrt im Opernhaus!</h2>
+                <p class="text-base sm:text-lg text-slate-200 leading-relaxed">
+                    Das <strong class="text-gold-300">Teatro della Voce</strong> ist abgesperrt. Löst 7 Rätsel-Räume rund um Stimme und Klang – dann geht die Tür auf. <strong>55 Minuten</strong> habt ihr Zeit.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 max-w-4xl mx-auto text-left">
+                <div class="glass-subpanel rounded-2xl p-4"><div class="text-2xl mb-1">🫁</div><div class="text-sm font-bold text-gold-300">1. Stimm-Maschine</div><div class="text-xs sm:text-sm text-slate-300">Störungs-Hotline</div></div>
+                <div class="glass-subpanel rounded-2xl p-4"><div class="text-2xl mb-1">📏</div><div class="text-sm font-bold text-gold-300">2. Stimmbruch</div><div class="text-xs sm:text-sm text-slate-300">Lügen-Jagd & Rechen-Schloss</div></div>
+                <div class="glass-subpanel rounded-2xl p-4"><div class="text-2xl mb-1">🎹</div><div class="text-sm font-bold text-gold-300">3. Stimmlagen</div><div class="text-xs sm:text-sm text-slate-300">Stimmlagen-Leiter &amp; Rollen</div></div>
+                <div class="glass-subpanel rounded-2xl p-4"><div class="text-2xl mb-1">🎛️</div><div class="text-sm font-bold text-gold-300">4. Beatbox-Studio</div><div class="text-xs sm:text-sm text-slate-300">Beat-Logikrätsel</div></div>
+                <div class="glass-subpanel rounded-2xl p-4"><div class="text-2xl mb-1">🪞</div><div class="text-sm font-bold text-gold-300">5. Belcanto-Saal</div><div class="text-xs sm:text-sm text-slate-300">Spiegelrätsel & Atem-Test</div></div>
+                <div class="glass-subpanel rounded-2xl p-4"><div class="text-2xl mb-1">👑</div><div class="text-sm font-bold text-gold-300">6. Kastraten-Loge</div><div class="text-xs sm:text-sm text-slate-300">Zeitfehler & Meister-Code</div></div>
+                <div class="glass-subpanel rounded-2xl p-4 col-span-2 sm:col-span-3"><div class="text-2xl mb-1">🎸</div><div class="text-sm font-bold text-gold-300">7. Instrumenten-Werkstatt</div><div class="text-xs sm:text-sm text-slate-300">Wie entsteht ein Ton? Resonanzkörper im Test</div></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto text-left">
+                <div class="glass-subpanel rounded-2xl p-4 flex items-start gap-3"><span class="text-2xl">📖</span><div><div class="font-bold text-gold-300">Lexikon</div><p class="text-sm text-slate-300 mt-1">Oben rechts. Dort steht alles Wichtige – aber nicht jede Lösung wörtlich!</p></div></div>
+                <div class="glass-subpanel rounded-2xl p-4 flex items-start gap-3"><span class="text-2xl">💡</span><div><div class="font-bold text-gold-300">3 Tipps pro Raum</div><p class="text-sm text-slate-300 mt-1">Jeder Tipp wird auf der Urkunde gezählt.</p></div></div>
+                <div class="glass-subpanel rounded-2xl p-4 flex items-start gap-3"><span class="text-2xl">🔊</span><div><div class="font-bold text-gold-300">Ton optional</div><p class="text-sm text-slate-300 mt-1">Nur im Beatbox-Studio gibt es Klänge. Kopfhörer helfen.</p></div></div>
+            </div>
+
+            <button onclick="startGame()" class="btn-stage-gold px-8 py-4 rounded-2xl text-lg tracking-wide cursor-pointer inline-flex items-center gap-3">🚪 Mission starten</button>
+        </section>
+
+        <!-- ================= RAUM 1 ================= -->
+        <section id="room-1" class="hidden space-y-6">
+            <div class="glass-stage-card rounded-3xl p-5 sm:p-8 space-y-6">
+                <div class="flex flex-wrap items-center justify-between gap-3 border-b border-gold-400/20 pb-4">
+                    <div>
+                        <div class="text-xs uppercase tracking-widest text-gold-400 font-bold">🫁 Raum 1 von 7</div>
+                        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-white mt-0.5">Die Stimm-Maschine ist kaputt!</h2>
+                    </div>
+                    <button onclick="openLexicon('tab-1')" class="min-h-[48px] text-sm bg-stage-850 hover:bg-stage-800 text-gold-300 border border-gold-400/40 px-4 py-2.5 rounded-xl font-bold flex items-center gap-2">📖 Lexikon</button>
+                </div>
+
+                <div class="glass-subpanel rounded-2xl p-4 sm:p-5 space-y-4">
+                    <h3 class="font-bold text-gold-300 text-base sm:text-lg flex items-center gap-2">
+                        <span class="w-7 h-7 rounded-lg bg-gold-400 text-stage-950 text-sm font-extrabold flex items-center justify-center">A</span>
+                        Störungs-Hotline
+                    </h3>
+                    <p class="text-base text-slate-200">Vier Anrufe gehen ein. Welcher Teil der Stimme ist jeweils schuld?</p>
+                    <div id="r1-calls" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+                </div>
+
+                <div class="glass-subpanel rounded-2xl p-4 sm:p-5 space-y-4">
+                    <h3 class="font-bold text-gold-300 text-base sm:text-lg flex items-center gap-2">
+                        <span class="w-7 h-7 rounded-lg bg-gold-400 text-stage-950 text-sm font-extrabold flex items-center justify-center">B</span>
+                        Der Sog-Beweis
+                    </h3>
+                    <div class="dossier-parchment rounded-2xl p-4 sm:p-5 text-base leading-loose font-medium">
+                        Strömt Luft durch die enge Stelle, entsteht ein <span id="r1-gap-1-wrap" class="inline-block align-middle w-40"></span>.
+                        Die Stimmlippen werden angesaugt und beginnen zu <span id="r1-gap-2-wrap" class="inline-block align-middle w-40"></span>.
+                    </div>
+                    <div class="space-y-2">
+                        <div class="text-sm text-slate-200">Dieser Effekt trägt den Namen eines Forschers. Bring die Buchstaben in Ordnung:</div>
+                        <div class="font-mono text-2xl sm:text-3xl font-extrabold text-gold-300 tracking-[0.4em]">O L L U B I N E R</div>
+                        <input type="text" id="r1-codeword" placeholder="Nachname des Forschers" autocomplete="off" class="w-full max-w-md min-h-[50px] bg-stage-850 text-gold-300 font-bold rounded-xl px-4 py-2.5 border border-gold-400/40 focus:outline-none focus:border-gold-300">
+                    </div>
+                </div>
+
+                <div id="r1-feedback" class="hidden rounded-2xl p-4 text-base font-semibold"></div>
+                <div class="flex flex-wrap items-center justify-between gap-4 pt-2">
+                    <button onclick="requestHint(1)" class="min-h-[50px] px-4 py-2.5 rounded-xl bg-stage-850 hover:bg-stage-800 text-gold-300 border border-gold-400/35 text-sm sm:text-base font-bold flex items-center gap-2"><span>💡 Tipp</span><span id="r1-hint-count" class="text-xs bg-stage-950 px-2.5 py-1 rounded-full text-gold-400 font-mono">0/3</span></button>
+                    <button onclick="checkRoom1()" class="btn-stage-gold px-6 py-3 rounded-xl text-base cursor-pointer">🔑 Prüfen</button>
+                </div>
+                <div id="r1-hints-box" class="hidden space-y-2 border-t border-gold-400/15 pt-4"></div>
+            </div>
+        </section>
+
+        <!-- ================= RAUM 2 ================= -->
+        <section id="room-2" class="hidden space-y-6">
+            <div class="glass-stage-card rounded-3xl p-5 sm:p-8 space-y-6">
+                <div class="flex flex-wrap items-center justify-between gap-3 border-b border-gold-400/20 pb-4">
+                    <div>
+                        <div class="text-xs uppercase tracking-widest text-gold-400 font-bold">📏 Raum 2 von 7</div>
+                        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-white mt-0.5">Stimmbruch – die Lügen-Akte</h2>
+                    </div>
+                    <button onclick="openLexicon('tab-2')" class="min-h-[48px] text-sm bg-stage-850 hover:bg-stage-800 text-gold-300 border border-gold-400/40 px-4 py-2.5 rounded-xl font-bold flex items-center gap-2">📖 Lexikon</button>
+                </div>
+
+                <div class="glass-subpanel rounded-2xl p-4 sm:p-5 space-y-4">
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                        <h3 class="font-bold text-gold-300 text-base sm:text-lg flex items-center gap-2">
+                            <span class="w-7 h-7 rounded-lg bg-gold-400 text-stage-950 text-sm font-extrabold flex items-center justify-center">A</span>
+                            Entlarve die Lügen
+                        </h3>
+                        <span id="r2-selected-count" class="px-3.5 py-1.5 rounded-full bg-stage-950 border border-gold-400/40 text-gold-300 text-sm font-extrabold">Markiert: 0</span>
+                    </div>
+                    <p class="text-base text-slate-200">Wie viele Aussagen sind falsch? Das findet ihr selbst heraus. Tippt die falschen an.</p>
+                    <div id="r2-statements" class="grid grid-cols-1 md:grid-cols-2 gap-3.5"></div>
+                </div>
+
+                <div class="glass-subpanel rounded-2xl p-4 sm:p-5 space-y-4">
+                    <h3 class="font-bold text-gold-300 text-base sm:text-lg flex items-center gap-2">
+                        <span class="w-7 h-7 rounded-lg bg-gold-400 text-stage-950 text-sm font-extrabold flex items-center justify-center">B</span>
+                        Das Rechen-Schloss
+                    </h3>
+                    <div id="r2-lock" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"></div>
+                </div>
+
+                <div id="r2-feedback" class="hidden rounded-2xl p-4 text-base font-semibold"></div>
+                <div class="flex flex-wrap items-center justify-between gap-4 pt-2">
+                    <button onclick="requestHint(2)" class="min-h-[50px] px-4 py-2.5 rounded-xl bg-stage-850 hover:bg-stage-800 text-gold-300 border border-gold-400/35 text-sm sm:text-base font-bold flex items-center gap-2"><span>💡 Tipp</span><span id="r2-hint-count" class="text-xs bg-stage-950 px-2.5 py-1 rounded-full text-gold-400 font-mono">0/3</span></button>
+                    <button onclick="checkRoom2()" class="btn-stage-gold px-6 py-3 rounded-xl text-base cursor-pointer">🔓 Prüfen</button>
+                </div>
+                <div id="r2-hints-box" class="hidden space-y-2 border-t border-gold-400/15 pt-4"></div>
+            </div>
+        </section>
+
+        <!-- ================= RAUM 3 ================= -->
+        <section id="room-3" class="hidden space-y-6">
+            <div class="glass-stage-card rounded-3xl p-5 sm:p-8 space-y-6">
+                <div class="flex flex-wrap items-center justify-between gap-3 border-b border-gold-400/20 pb-4">
+                    <div>
+                        <div class="text-xs uppercase tracking-widest text-gold-400 font-bold">🎹 Raum 3 von 7</div>
+                        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-white mt-0.5">Der Orchestergraben</h2>
+                    </div>
+                    <button onclick="openLexicon('tab-3')" class="min-h-[48px] text-sm bg-stage-850 hover:bg-stage-800 text-gold-300 border border-gold-400/40 px-4 py-2.5 rounded-xl font-bold flex items-center gap-2">📖 Lexikon</button>
+                </div>
+
+                <div class="glass-subpanel rounded-2xl p-4 sm:p-5 space-y-3">
+                    <h3 class="font-bold text-gold-300 text-base sm:text-lg flex items-center gap-2">
+                        <span class="w-7 h-7 rounded-lg bg-gold-400 text-stage-950 text-sm font-extrabold flex items-center justify-center">A</span>
+                        Die Stimmlagen-Leiter
+                    </h3>
+                    <p class="text-base text-slate-200">Sortiere die sechs Stimmlagen: <strong>oben die höchste, unten die tiefste.</strong></p>
+                    <div id="r3-sortable-list" class="space-y-2.5"></div>
+                </div>
+
+                <div class="glass-subpanel rounded-2xl p-4 sm:p-5 space-y-4">
+                    <h3 class="font-bold text-gold-300 text-base sm:text-lg flex items-center gap-2">
+                        <span class="w-7 h-7 rounded-lg bg-gold-400 text-stage-950 text-sm font-extrabold flex items-center justify-center">B</span>
+                        Wer singt hier?
+                    </h3>
+                    <div id="r3-who" class="grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
+                </div>
+
+                <div class="glass-subpanel rounded-2xl p-4 sm:p-5 space-y-4">
+                    <h3 class="font-bold text-gold-300 text-base sm:text-lg flex items-center gap-2">
+                        <span class="w-7 h-7 rounded-lg bg-gold-400 text-stage-950 text-sm font-extrabold flex items-center justify-center">C</span>
+                        Drei Rollen-Anzeigen
+                    </h3>
+                    <div id="r3-roles" class="grid grid-cols-1 md:grid-cols-3 gap-4"></div>
+                </div>
+
+                <div id="r3-feedback" class="hidden rounded-2xl p-4 text-base font-semibold"></div>
+                <div class="flex flex-wrap items-center justify-between gap-4 pt-2">
+                    <button onclick="requestHint(3)" class="min-h-[50px] px-4 py-2.5 rounded-xl bg-stage-850 hover:bg-stage-800 text-gold-300 border border-gold-400/35 text-sm sm:text-base font-bold flex items-center gap-2"><span>💡 Tipp</span><span id="r3-hint-count" class="text-xs bg-stage-950 px-2.5 py-1 rounded-full text-gold-400 font-mono">0/3</span></button>
+                    <button onclick="checkRoom3()" class="btn-stage-gold px-6 py-3 rounded-xl text-base cursor-pointer">🎼 Prüfen</button>
+                </div>
+                <div id="r3-hints-box" class="hidden space-y-2 border-t border-gold-400/15 pt-4"></div>
+            </div>
+        </section>
+
+        <!-- ================= RAUM 4 ================= -->
+        <section id="room-4" class="hidden space-y-6">
+            <div class="glass-stage-card rounded-3xl p-5 sm:p-8 space-y-6">
+                <div class="flex flex-wrap items-center justify-between gap-3 border-b border-gold-400/20 pb-4">
+                    <div>
+                        <div class="text-xs uppercase tracking-widest text-gold-400 font-bold">🎛️ Raum 4 von 7</div>
+                        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-white mt-0.5">Das Beatbox-Studio</h2>
+                    </div>
+                    <button onclick="openLexicon('tab-4')" class="min-h-[48px] text-sm bg-stage-850 hover:bg-stage-800 text-gold-300 border border-gold-400/40 px-4 py-2.5 rounded-xl font-bold flex items-center gap-2">📖 Lexikon</button>
+                </div>
+
+                <div class="glass-subpanel rounded-2xl p-4 sm:p-5 space-y-4">
+                    <h3 class="font-bold text-gold-300 text-base sm:text-lg flex items-center gap-2">
+                        <span class="w-7 h-7 rounded-lg bg-gold-400 text-stage-950 text-sm font-extrabold flex items-center justify-center">A</span>
+                        Programmiere den Beat
+                    </h3>
+                    <div class="dossier-parchment rounded-2xl p-4 sm:p-5 text-base leading-relaxed font-medium">
+                        <div class="font-serif font-extrabold mb-1">✉️ Der Studio-Chef schreibt:</div>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li>Der Beat hat <strong>8 Schläge</strong>.</li>
+                            <li>Der <strong>Lippen-Bass</strong> kommt auf Schlag 1 und genau eine halbe Runde später.</li>
+                            <li>Die <strong>Gaumen-Snare</strong> kommt zweimal – je zwei Schläge nach einem Bass.</li>
+                            <li>Die <strong>Zungen-Hi-Hat</strong> spielt auf jedem geraden Schlag.</li>
+                            <li>Der <strong>Zahn-Scratch</strong> kommt nur ein einziges Mal: ganz am Ende, zusammen mit der Hi-Hat.</li>
+                        </ul>
+                    </div>
+                    <p class="text-sm text-slate-300">Tippe auf einen Namen links, um den Klang zu hören. Tippe Felder an, um sie zu setzen.</p>
+                    <div id="r4-grid" class="space-y-2 overflow-x-auto"></div>
+                    <div class="flex flex-wrap gap-3">
+                        <button type="button" onclick="playR4Beat()" class="min-h-[48px] px-5 py-2 rounded-xl bg-velvet-600 hover:bg-velvet-500 text-white font-bold text-sm">▶ Beat abspielen</button>
+                        <button type="button" onclick="resetR4Grid()" class="min-h-[48px] px-5 py-2 rounded-xl bg-stage-850 hover:bg-stage-800 text-slate-200 border border-white/15 text-sm font-bold">↺ Leeren</button>
+                    </div>
+                </div>
+
+                <div class="glass-subpanel rounded-2xl p-4 sm:p-5 space-y-4">
+                    <h3 class="font-bold text-gold-300 text-base sm:text-lg flex items-center gap-2">
+                        <span class="w-7 h-7 rounded-lg bg-gold-400 text-stage-950 text-sm font-extrabold flex items-center justify-center">B</span>
+                        Drei Szenen – welcher Stimm-Trick?
+                    </h3>
+                    <div id="r4-tricks" class="grid grid-cols-1 md:grid-cols-3 gap-4"></div>
+                </div>
+
+                <div id="r4-feedback" class="hidden rounded-2xl p-4 text-base font-semibold"></div>
+                <div class="flex flex-wrap items-center justify-between gap-4 pt-2">
+                    <button onclick="requestHint(4)" class="min-h-[50px] px-4 py-2.5 rounded-xl bg-stage-850 hover:bg-stage-800 text-gold-300 border border-gold-400/35 text-sm sm:text-base font-bold flex items-center gap-2"><span>💡 Tipp</span><span id="r4-hint-count" class="text-xs bg-stage-950 px-2.5 py-1 rounded-full text-gold-400 font-mono">0/3</span></button>
+                    <button onclick="checkRoom4()" class="btn-stage-gold px-6 py-3 rounded-xl text-base cursor-pointer">🎚️ Prüfen</button>
+                </div>
+                <div id="r4-hints-box" class="hidden space-y-2 border-t border-gold-400/15 pt-4"></div>
+            </div>
+        </section>
+
+        <!-- ================= RAUM 5 ================= -->
+        <section id="room-5" class="hidden space-y-6">
+            <div class="glass-stage-card rounded-3xl p-5 sm:p-8 space-y-6">
+                <div class="flex flex-wrap items-center justify-between gap-3 border-b border-gold-400/20 pb-4">
+                    <div>
+                        <div class="text-xs uppercase tracking-widest text-gold-400 font-bold">🪞 Raum 5 von 7</div>
+                        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-white mt-0.5">Belcanto – der Spiegelsaal</h2>
+                    </div>
+                    <button onclick="openLexicon('tab-5')" class="min-h-[48px] text-sm bg-stage-850 hover:bg-stage-800 text-gold-300 border border-gold-400/40 px-4 py-2.5 rounded-xl font-bold flex items-center gap-2">📖 Lexikon</button>
+                </div>
+
+                <div class="glass-subpanel rounded-2xl p-4 sm:p-5 space-y-4">
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                        <h3 class="font-bold text-gold-300 text-base sm:text-lg flex items-center gap-2">
+                            <span class="w-7 h-7 rounded-lg bg-gold-400 text-stage-950 text-sm font-extrabold flex items-center justify-center">A</span>
+                            Der Spiegel-Zettel
+                        </h3>
+                        <button type="button" onclick="toggleMirrorFullFlip()" id="r5-flip-btn" class="min-h-[46px] px-4 py-2 rounded-xl bg-stage-850 hover:bg-stage-800 text-gold-300 border border-gold-400/45 text-sm font-bold">🪞 Spiegeln</button>
+                    </div>
+                    <div id="r5-mirror-container" class="mirror-box relative dossier-parchment rounded-2xl p-5 sm:p-6 overflow-hidden cursor-pointer">
+                        <div id="r5-mirror-content" class="mirrored-text w-full text-center space-y-2">
+                            <div class="text-xs uppercase font-extrabold tracking-widest text-amber-900">Rätsel aus Italien</div>
+                            <p class="text-base sm:text-lg font-bold text-stage-900">
+                                „Ich verbinde Töne weich, ohne Lücke.<br>Mein Gegenteil heißt <em>Staccato</em>.<br>Wer bin ich?“
+                            </p>
+                        </div>
+                        <div id="r5-lens-indicator" class="pointer-events-none absolute w-24 h-24 rounded-full border-2 border-velvet-600/60 bg-white/25 shadow-inner hidden" style="left: 50%; top: 50%; transform: translate(-50%, -50%);"></div>
+                    </div>
+                    <div class="max-w-md space-y-1.5">
+                        <label for="r5-codeword" class="block text-sm font-bold text-gold-300">Lösungswort:</label>
+                        <input type="text" id="r5-codeword" placeholder="L…" autocomplete="off" class="w-full min-h-[50px] bg-stage-850 text-gold-300 font-bold rounded-xl px-4 py-2.5 border border-gold-400/45 focus:outline-none focus:border-gold-300">
+                    </div>
+                </div>
+
+                <div class="glass-subpanel rounded-2xl p-4 sm:p-5 space-y-4">
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                        <h3 class="font-bold text-gold-300 text-base sm:text-lg flex items-center gap-2">
+                            <span class="w-7 h-7 rounded-lg bg-gold-400 text-stage-950 text-sm font-extrabold flex items-center justify-center">B</span>
+                            Atem-Prüfung
+                        </h3>
+                        <span id="r5-challenge-badge" class="text-xs sm:text-sm px-3.5 py-1.5 rounded-full bg-stage-950 border border-gold-400/35 text-gold-300 font-bold">Noch nicht bestanden</span>
+                    </div>
+                    <p class="text-sm sm:text-base text-slate-200">Halte den Button gedrückt, lass ihn los, halte wieder – der Punkt soll im <strong class="text-emerald-400">grünen Bereich</strong> bleiben, bis 100 % erreicht sind. Zu viel Druck wirft dich zurück!</p>
+                    <div class="bg-stage-950/95 p-5 rounded-2xl border border-gold-400/30 space-y-4">
+                        <div class="space-y-1.5">
+                            <div class="flex justify-between text-xs sm:text-sm font-bold">
+                                <span class="text-slate-400">Zu wenig</span><span class="text-emerald-400">★ Atemstütze ★</span><span class="text-rose-400">Zu viel</span>
+                            </div>
+                            <div class="relative w-full h-9 bg-stage-850 rounded-full overflow-hidden border border-white/15">
+                                <div class="absolute top-0 bottom-0 bg-emerald-500/30 border-x-2 border-emerald-400" style="left: 45%; width: 30%;"></div>
+                                <div id="r5-air-cursor" class="absolute top-1 bottom-1 w-5 rounded-full bg-gold-400 shadow-lg" style="left: 10%;"></div>
+                            </div>
+                        </div>
+                        <div class="space-y-1.5">
+                            <div class="flex justify-between text-sm text-gold-300 font-bold"><span>Fortschritt</span><span id="r5-phrase-text">0%</span></div>
+                            <div class="w-full h-4 bg-stage-850 rounded-full overflow-hidden"><div id="r5-phrase-bar" class="h-full bg-gradient-to-r from-gold-400 to-emerald-400" style="width: 0%;"></div></div>
+                        </div>
+                        <div class="text-center pt-1">
+                            <button type="button" id="r5-hold-btn"
+                                onpointerdown="setBreathPress(true, event)"
+                                onpointerup="setBreathPress(false, event)"
+                                onpointercancel="setBreathPress(false, event)"
+                                onpointerleave="setBreathPress(false, event)"
+                                oncontextmenu="return false;"
+                                class="no-select w-full sm:w-auto min-h-[64px] px-8 py-4 rounded-2xl bg-gradient-to-r from-velvet-600 to-velvet-700 active:scale-95 text-white font-extrabold text-base border-2 border-gold-300/70 shadow-xl cursor-pointer">
+                                🎵 Atem geben (gedrückt halten)
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-subpanel rounded-2xl p-4 sm:p-5 space-y-4">
+                    <h3 class="font-bold text-gold-300 text-base sm:text-lg flex items-center gap-2">
+                        <span class="w-7 h-7 rounded-lg bg-gold-400 text-stage-950 text-sm font-extrabold flex items-center justify-center">C</span>
+                        Begriffe zuordnen
+                    </h3>
+                    <div id="r5-terms" class="grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
+                </div>
+
+                <div id="r5-feedback" class="hidden rounded-2xl p-4 text-base font-semibold"></div>
+                <div class="flex flex-wrap items-center justify-between gap-4 pt-2">
+                    <button onclick="requestHint(5)" class="min-h-[50px] px-4 py-2.5 rounded-xl bg-stage-850 hover:bg-stage-800 text-gold-300 border border-gold-400/35 text-sm sm:text-base font-bold flex items-center gap-2"><span>💡 Tipp</span><span id="r5-hint-count" class="text-xs bg-stage-950 px-2.5 py-1 rounded-full text-gold-400 font-mono">0/3</span></button>
+                    <button onclick="checkRoom5()" class="btn-stage-gold px-6 py-3 rounded-xl text-base cursor-pointer">🪞 Prüfen</button>
+                </div>
+                <div id="r5-hints-box" class="hidden space-y-2 border-t border-gold-400/15 pt-4"></div>
+            </div>
+        </section>
+
+        <!-- ================= RAUM 6 ================= -->
+        <section id="room-6" class="hidden space-y-6">
+            <div class="glass-stage-card rounded-3xl p-5 sm:p-8 space-y-6">
+                <div class="flex flex-wrap items-center justify-between gap-3 border-b border-gold-400/20 pb-4">
+                    <div>
+                        <div class="text-xs uppercase tracking-widest text-gold-400 font-bold">👑 Raum 6 von 7</div>
+                        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-white mt-0.5">Kastraten & Countertenöre</h2>
+                    </div>
+                    <button onclick="openLexicon('tab-6')" class="min-h-[48px] text-sm bg-stage-850 hover:bg-stage-800 text-gold-300 border border-gold-400/40 px-4 py-2.5 rounded-xl font-bold flex items-center gap-2">📖 Lexikon</button>
+                </div>
+
+                <div class="glass-subpanel rounded-2xl p-4 sm:p-5 space-y-4">
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                        <h3 class="font-bold text-gold-300 text-base sm:text-lg flex items-center gap-2">
+                            <span class="w-7 h-7 rounded-lg bg-gold-400 text-stage-950 text-sm font-extrabold flex items-center justify-center">A</span>
+                            Die Barock-Bühne (1735)
+                        </h3>
+                        <div class="flex gap-2">
+                            <span id="r6-error-counter" class="px-3 py-1.5 rounded-full bg-stage-950 border border-rose-400/40 text-rose-300 text-sm font-extrabold">Gefunden: 0 / 6</span>
+                        </div>
+                    </div>
+                    <p class="text-base text-slate-200">Du bist im Jahr <strong>1735</strong> im Opernhaus. Aber Vorsicht: Auf der Bühne liegen Dinge, die es damals <strong>noch gar nicht gab</strong>! Tippe sie alle an. Es sind <strong>6</strong>.</p>
+
+                    <div id="r6-stage" class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3"></div>
+                    <div id="r6-clues-log" class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm sm:text-base">
+                        <div class="bg-stage-950/90 border border-gold-400/25 rounded-xl p-3.5 text-slate-300 md:col-span-2">🔍 Tippe alles an, was es 1735 noch nicht gab.</div>
+                    </div>
+                </div>
+
+                <div class="glass-subpanel rounded-2xl p-4 sm:p-5 space-y-3">
+                    <h3 class="font-bold text-gold-300 text-base sm:text-lg flex items-center gap-2">
+                        <span class="w-7 h-7 rounded-lg bg-gold-400 text-stage-950 text-sm font-extrabold flex items-center justify-center">B</span>
+                        Zeitstrahl
+                    </h3>
+                    <p class="text-base text-slate-200">Bringe die Geschichte in die richtige Reihenfolge – <strong>von früher nach heute</strong>.</p>
+                    <div id="r6-timeline" class="space-y-2.5"></div>
+                </div>
+
+                <div class="bg-gradient-to-b from-stage-800/95 to-stage-950 border-2 border-gold-400 rounded-2xl p-5 sm:p-6 space-y-5 active-portal-glow">
+                    <div class="text-center space-y-1">
+                        <div class="text-3xl">🗝️</div>
+                        <h3 class="font-serif text-xl sm:text-2xl font-bold text-gold-300">C: Das Meister-Schloss</h3>
+                    </div>
+                    <div id="r6-lock" class="grid grid-cols-1 md:grid-cols-3 gap-4"></div>
+                </div>
+
+                <div id="r6-feedback" class="hidden rounded-2xl p-4 text-base font-semibold"></div>
+                <div class="flex flex-wrap items-center justify-between gap-4 pt-2">
+                    <button onclick="requestHint(6)" class="min-h-[50px] px-4 py-2.5 rounded-xl bg-stage-850 hover:bg-stage-800 text-gold-300 border border-gold-400/35 text-sm sm:text-base font-bold flex items-center gap-2"><span>💡 Tipp</span><span id="r6-hint-count" class="text-xs bg-stage-950 px-2.5 py-1 rounded-full text-gold-400 font-mono">0/3</span></button>
+                    <button onclick="checkRoom6()" class="btn-stage-gold px-7 py-3.5 rounded-xl text-base cursor-pointer">🔑 Prüfen</button>
+                </div>
+                <div id="r6-hints-box" class="hidden space-y-2 border-t border-gold-400/15 pt-4"></div>
+            </div>
+        </section>
+
+        <!-- ================= RAUM 7 ================= -->
+        <section id="room-7" class="hidden space-y-6">
+            <div class="glass-stage-card rounded-3xl p-5 sm:p-8 space-y-6">
+                <div class="flex flex-wrap items-center justify-between gap-3 border-b border-gold-400/20 pb-4">
+                    <div>
+                        <div class="text-xs uppercase tracking-widest text-gold-400 font-bold">🎸 Raum 7 von 7 • Finale</div>
+                        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-white mt-0.5">Die Instrumenten-Werkstatt</h2>
+                    </div>
+                    <button onclick="openLexicon('tab-7')" class="min-h-[48px] text-sm bg-stage-850 hover:bg-stage-800 text-gold-300 border border-gold-400/40 px-4 py-2.5 rounded-xl font-bold flex items-center gap-2">📖 Lexikon</button>
+                </div>
+
+                <div class="glass-subpanel rounded-2xl p-4 sm:p-5 space-y-4">
+                    <h3 class="font-bold text-gold-300 text-base sm:text-lg flex items-center gap-2">
+                        <span class="w-7 h-7 rounded-lg bg-gold-400 text-stage-950 text-sm font-extrabold flex items-center justify-center">A</span>
+                        Instrumenten-Röntgen
+                    </h3>
+                    <p class="text-base text-slate-200">Was schwingt, und was verstärkt? Wähle für jedes Instrument den Tonerzeuger und den Resonanzkörper.</p>
+                    <div id="r7-xray" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+                </div>
+
+                <div class="glass-subpanel rounded-2xl p-4 sm:p-5 space-y-4">
+                    <h3 class="font-bold text-gold-300 text-base sm:text-lg flex items-center gap-2">
+                        <span class="w-7 h-7 rounded-lg bg-gold-400 text-stage-950 text-sm font-extrabold flex items-center justify-center">B</span>
+                        Fehlersuche: Was fehlt?
+                    </h3>
+                    <p class="text-base text-slate-200">Jedes Mal fehlt eines der 3 Dinge, die ein Ton braucht.</p>
+                    <div id="r7-cases" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+                </div>
+
+                <div class="glass-subpanel rounded-2xl p-4 sm:p-5 space-y-4">
+                    <h3 class="font-bold text-gold-300 text-base sm:text-lg flex items-center gap-2">
+                        <span class="w-7 h-7 rounded-lg bg-gold-400 text-stage-950 text-sm font-extrabold flex items-center justify-center">C</span>
+                        Saiten-Rätsel: Was klingt höher?
+                    </h3>
+                    <p class="text-base text-slate-200">Überlege bei jedem Paar, welche Saite höher klingt. Denk an eine Gitarre!</p>
+                    <div id="r7-pairs" class="grid grid-cols-1 md:grid-cols-3 gap-4"></div>
+                    <div class="dossier-parchment rounded-2xl p-4 sm:p-5 text-base leading-loose font-medium">
+                        <strong>Merksatz:</strong> Kürzer, dünner und straffer klingt <span class="inline-block align-middle w-32" id="r7-rule-1-wrap"></span>.
+                        Länger, dicker und lockerer klingt <span class="inline-block align-middle w-32" id="r7-rule-2-wrap"></span>.
+                    </div>
+                </div>
+
+                <div id="r7-feedback" class="hidden rounded-2xl p-4 text-base font-semibold"></div>
+                <div class="flex flex-wrap items-center justify-between gap-4 pt-2">
+                    <button onclick="requestHint(7)" class="min-h-[50px] px-4 py-2.5 rounded-xl bg-stage-850 hover:bg-stage-800 text-gold-300 border border-gold-400/35 text-sm sm:text-base font-bold flex items-center gap-2"><span>💡 Tipp</span><span id="r7-hint-count" class="text-xs bg-stage-950 px-2.5 py-1 rounded-full text-gold-400 font-mono">0/3</span></button>
+                    <button onclick="checkRoom7()" class="btn-stage-gold px-7 py-3.5 rounded-xl text-base cursor-pointer">🏆 Tür öffnen!</button>
+                </div>
+                <div id="r7-hints-box" class="hidden space-y-2 border-t border-gold-400/15 pt-4"></div>
+            </div>
+        </section>
+
+        <!-- SIEG -->
+        <section id="victory-screen" class="hidden space-y-6">
+            <div class="text-center space-y-2 no-print">
+                <span class="inline-block px-4 py-1.5 rounded-full bg-emerald-500/20 border border-emerald-400/50 text-emerald-300 text-xs sm:text-sm font-extrabold uppercase tracking-wider">🎉 Alle 7 Räume geknackt!</span>
+                <h2 class="font-serif text-3xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-gold-300 via-gold-400 to-amber-200">Die Tür ist offen!</h2>
+                <p class="text-base text-slate-200 max-w-2xl mx-auto">Namen eintragen, Urkunde zeigen oder als PDF drucken.</p>
+            </div>
+            <div class="glass-stage-card rounded-2xl p-4 max-w-xl mx-auto flex flex-col sm:flex-row gap-3 no-print">
+                <input type="text" id="student-name-input" oninput="updateCertificateName()" placeholder="Name / Team (z. B. Leonie & Jonas, 2b)" class="flex-1 min-h-[50px] bg-stage-950 text-white px-4 py-3 rounded-xl border border-gold-400/50 focus:outline-none focus:border-gold-300">
+                <button onclick="window.print()" class="btn-stage-gold px-5 py-3 rounded-xl text-base flex items-center justify-center gap-2 shrink-0 cursor-pointer">🖨️ Drucken / PDF</button>
+            </div>
+            <div id="certificate-card" class="dossier-parchment rounded-3xl p-6 sm:p-10 max-w-3xl mx-auto text-center relative overflow-hidden">
+                <div class="border-4 border-double border-amber-700/70 rounded-2xl p-6 sm:p-9 space-y-5 relative">
+                    <div class="text-4xl text-amber-700">𝄞</div>
+                    <div class="space-y-1">
+                        <p class="text-xs uppercase tracking-[0.22em] text-amber-900 font-extrabold">Teatro della Voce • Musik, 2. Klasse</p>
+                        <h3 class="font-serif text-3xl sm:text-4xl font-extrabold text-stage-900">Ehren-Urkunde</h3>
+                    </div>
+                    <p class="text-base text-stage-900 font-medium">Hiermit wird bestätigt, dass</p>
+                    <div id="cert-student-name" class="font-serif text-2xl sm:text-3xl font-extrabold text-velvet-700 border-b-2 border-amber-700 inline-block px-8 py-1 min-w-[260px]">[Name eintragen]</div>
+                    <p class="text-sm sm:text-base text-stage-900 max-w-xl mx-auto leading-relaxed">
+                        das Escape Game <strong>„Das Geheimnis der menschlichen Stimme“</strong> gelöst hat.
+                    </p>
+                    <div class="grid grid-cols-3 gap-3 max-w-lg mx-auto pt-2">
+                        <div class="bg-white/80 border border-amber-700/35 rounded-xl p-3"><div class="text-xs uppercase text-amber-900 font-bold">Räume</div><div class="font-serif font-extrabold text-lg text-stage-900">7 / 7</div></div>
+                        <div class="bg-white/80 border border-amber-700/35 rounded-xl p-3"><div class="text-xs uppercase text-amber-900 font-bold">Zeit</div><div id="cert-time-used" class="font-mono font-extrabold text-lg text-stage-900">--:--</div></div>
+                        <div class="bg-white/80 border border-amber-700/35 rounded-xl p-3"><div class="text-xs uppercase text-amber-900 font-bold">Tipps</div><div id="cert-hints-used" class="font-serif font-extrabold text-lg text-stage-900">0</div></div>
+                    </div>
+                    <div class="flex flex-wrap justify-between items-center gap-4 pt-6 text-sm text-stage-900 border-t border-amber-700/30">
+                        <div>Datum: <span id="cert-date" class="font-bold"></span></div>
+                        <svg viewBox="0 0 80 80" class="w-14 h-14">
+                            <circle cx="40" cy="40" r="34" fill="#f59e0b" stroke="#b45309" stroke-width="3"/>
+                            <circle cx="40" cy="40" r="27" fill="none" stroke="#fef3c7" stroke-width="1.5" stroke-dasharray="3 2"/>
+                            <text x="40" y="37" text-anchor="middle" font-size="9" font-weight="bold" fill="#0f172a">STIMM-</text>
+                            <text x="40" y="48" text-anchor="middle" font-size="9" font-weight="bold" fill="#0f172a">EXPERTE</text>
+                        </svg>
+                        <div class="font-serif italic font-bold">Direktion des Opernhauses</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- LEXIKON -->
+    <div id="lexicon-modal" class="fixed inset-0 z-50 hidden bg-stage-950/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 no-print">
+        <div class="dossier-parchment rounded-3xl w-full max-w-4xl max-h-[90vh] flex flex-col overflow-hidden shadow-2xl">
+            <div class="bg-stage-900 text-gold-300 px-5 py-4 flex items-center justify-between border-b-2 border-gold-400">
+                <div class="flex items-center gap-3">
+                    <span class="text-2xl">📖</span>
+                    <h3 class="font-serif font-bold text-base sm:text-lg">Stimm-Lexikon</h3>
+                </div>
+                <button onclick="closeLexicon()" aria-label="Schließen" class="w-12 h-12 rounded-xl bg-stage-800 hover:bg-velvet-600 text-white font-bold flex items-center justify-center border border-gold-400/40 text-lg">✕</button>
+            </div>
+            <div class="bg-amber-200/85 px-3 py-2.5 flex gap-2 overflow-x-auto border-b border-amber-700/25 shrink-0">
+                <button onclick="switchLexiconTab('tab-1')" id="btn-tab-1" class="lex-tab-btn min-h-[44px] px-3.5 py-2 rounded-xl text-sm font-extrabold whitespace-nowrap">1. Stimm-Maschine</button>
+                <button onclick="switchLexiconTab('tab-2')" id="btn-tab-2" class="lex-tab-btn min-h-[44px] px-3.5 py-2 rounded-xl text-sm font-extrabold whitespace-nowrap">2. Stimmbruch</button>
+                <button onclick="switchLexiconTab('tab-3')" id="btn-tab-3" class="lex-tab-btn min-h-[44px] px-3.5 py-2 rounded-xl text-sm font-extrabold whitespace-nowrap">3. Stimmlagen</button>
+                <button onclick="switchLexiconTab('tab-4')" id="btn-tab-4" class="lex-tab-btn min-h-[44px] px-3.5 py-2 rounded-xl text-sm font-extrabold whitespace-nowrap">4. Beatbox & Klang</button>
+                <button onclick="switchLexiconTab('tab-5')" id="btn-tab-5" class="lex-tab-btn min-h-[44px] px-3.5 py-2 rounded-xl text-sm font-extrabold whitespace-nowrap">5. Belcanto</button>
+                <button onclick="switchLexiconTab('tab-6')" id="btn-tab-6" class="lex-tab-btn min-h-[44px] px-3.5 py-2 rounded-xl text-sm font-extrabold whitespace-nowrap">6. Kastraten</button>
+                <button onclick="switchLexiconTab('tab-7')" id="btn-tab-7" class="lex-tab-btn min-h-[44px] px-3.5 py-2 rounded-xl text-sm font-extrabold whitespace-nowrap">7. Klang & Resonanz</button>
+            </div>
+
+            <div class="p-5 sm:p-6 overflow-y-auto space-y-5 text-base leading-relaxed text-stage-950">
+                <div id="tab-1" class="lex-content space-y-4">
+                    <h4 class="font-serif text-xl font-extrabold text-stage-900 border-b border-amber-700/30 pb-1">1. Die Stimm-Maschine</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 items-center">
+                        <ul class="list-disc pl-5 space-y-1.5">
+                            <li><strong>Lunge & Zwerchfell</strong> (Blasebalg): Beim Einatmen senkt sich das Zwerchfell. Beim Ausatmen strömt Luft nach oben.</li>
+                            <li><strong>Kehlkopf & Stimmlippen</strong> (Tonerzeuger): Strömende Luft saugt die Stimmlippen an, sie schwingen. Dieser Sog heißt <strong>Bernoulli-Effekt</strong> (Daniel Bernoulli).</li>
+                            <li><strong>Rachen, Mund, Nase</strong> (Resonanzraum): Sie machen den Ton voll und laut, wie der Gitarrenkorpus.</li>
+                        </ul>
+                        <div class="bg-white/85 border border-amber-700/40 rounded-2xl p-4">
+                            <div class="text-sm font-extrabold text-stage-900 mb-2 text-center">Schema: Der Weg der Luft (vereinfacht)</div>
+                            <div class="flex flex-col items-stretch gap-1 text-center text-sm">
+                                <div class="rounded-xl bg-amber-100 border border-amber-700/40 p-2"><strong>3. Mund, Rachen, Nase</strong><br>Resonanzraum: macht den Klang</div>
+                                <div class="font-extrabold text-amber-800">↑ Ton</div>
+                                <div class="rounded-xl bg-rose-100 border border-rose-400 p-2"><strong>2. Kehlkopf mit Stimmlippen</strong><br>Tonerzeuger: Stimmlippen schwingen</div>
+                                <div class="font-extrabold text-amber-800">↑ Luft</div>
+                                <div class="rounded-xl bg-sky-100 border border-sky-400 p-2"><strong>1. Lunge &amp; Zwerchfell</strong><br>Blasebalg: liefert die Luft</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-2" class="lex-content hidden space-y-4">
+                    <h4 class="font-serif text-xl font-extrabold text-stage-900 border-b border-amber-700/30 pb-1">2. Der Stimmbruch</h4>
+                    <p>In der Pubertät (ca. 11–15 Jahre) lässt <strong>Testosteron</strong> Kehlkopf und Stimmlippen wachsen. <strong>Auch Mädchen haben Stimmbruch</strong>, nur sanfter. Längere Stimmlippen schwingen <strong>langsamer</strong>, die Stimme wird tiefer.</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="bg-white/85 p-4 rounded-2xl border border-amber-700/35 space-y-1.5">
+                            <div class="font-extrabold">👦 Jungen</div>
+                            <ul class="list-disc pl-4 text-sm space-y-1">
+                                <li>Stimmlippen wachsen ca. <strong>1 cm</strong> (= 10 mm).</li>
+                                <li>Der Kehlkopf wächst nach vorn: Der Adamsapfel entsteht.</li>
+                                <li>Stimme sinkt um eine <strong>Oktave</strong> (8 Tonstufen).</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white/85 p-4 rounded-2xl border border-amber-700/35 space-y-1.5">
+                            <div class="font-extrabold">👧 Mädchen</div>
+                            <ul class="list-disc pl-4 text-sm space-y-1">
+                                <li>Stimmlippen wachsen mindestens <strong>3 mm</strong>.</li>
+                                <li>Stimme sinkt um eine <strong>Terz</strong> (3 Tonstufen).</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="text-sm bg-white/80 p-3 rounded-xl border border-amber-700/30"><strong>Tipp:</strong> Wenn die Stimme kippt, schonen. Nicht brüllen, nicht pressen.</p>
+                </div>
+
+                <div id="tab-3" class="lex-content hidden space-y-4">
+                    <h4 class="font-serif text-xl font-extrabold text-stage-900 border-b border-amber-700/30 pb-1">3. Die 6 Stimmlagen</h4>
+                    <div class="bg-white/85 p-4 rounded-2xl border border-amber-700/35 space-y-2 text-sm">
+                        <div><strong>1. Sopran:</strong> höchste Frauenstimme. <em>Koloratursopran:</em> extrem hoch, blitzschnelle Verzierungen (Königin der Nacht).</div>
+                        <div><strong>2. Mezzosopran:</strong> mittlere Frauenstimme.</div>
+                        <div><strong>3. Alt:</strong> tiefe Frauenstimme.</div>
+                        <div><strong>4. Tenor:</strong> hohe Männerstimme. <em>Heldentenor:</em> kräftig und strahlend, spielt Ritter und Helden.</div>
+                        <div><strong>5. Bariton:</strong> mittlere Männerstimme.</div>
+                        <div><strong>6. Bass:</strong> tiefste Männerstimme. <em>Bassbuffo:</em> tief, lustig, singt sehr schnell.</div>
+                    </div>
+                </div>
+
+                <div id="tab-4" class="lex-content hidden space-y-4">
+                    <h4 class="font-serif text-xl font-extrabold text-stage-900 border-b border-amber-700/30 pb-1">4. Beatbox & Stimm-Tricks</h4>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li><strong>Beatboxing:</strong> Schlagzeug mit dem Mund. <strong>B</strong> Lippen = Kick („Bumm“), <strong>T</strong> Zungenspitze = Hi-Hat („Tss“), <strong>K</strong> Gaumen = Snare („Kch“), <strong>F</strong> Zähne/Lippen = Scratch („Fff“).</li>
+                        <li><strong>Obertongesang:</strong> Ein tiefer Grundton und gleichzeitig eine hohe, pfeifende Melodie.</li>
+                        <li><strong>Stimm-Imitation:</strong> Tiere, Sirenen oder Personen täuschend echt nachmachen.</li>
+                    </ul>
+                </div>
+
+                <div id="tab-5" class="lex-content hidden space-y-4">
+                    <h4 class="font-serif text-xl font-extrabold text-stage-900 border-b border-amber-700/30 pb-1">5. Belcanto</h4>
+                    <p><strong>Belcanto</strong> ist italienisch: „Schöner Gesang“.</p>
+                    <ul class="list-disc pl-5 space-y-1.5">
+                        <li><strong>Legato:</strong> Töne weich und ohne Lücke verbinden.</li>
+                        <li><strong>Staccato:</strong> Töne kurz und abgesetzt.</li>
+                        <li><strong>Koloraturen:</strong> blitzschnelle Läufe, Triller, Verzierungen.</li>
+                        <li><strong>Atemstütze:</strong> ruhige Bauchatmung für lange Melodien.</li>
+                    </ul>
+                </div>
+
+                <div id="tab-7" class="lex-content hidden space-y-4">
+                    <h4 class="font-serif text-xl font-extrabold text-stage-900 border-b border-amber-700/30 pb-1">7. Wie entsteht ein Ton?</h4>
+                    <p>Jedes Instrument braucht <strong>3 Dinge</strong>:</p>
+                    <ol class="list-decimal pl-5 space-y-1.5">
+                        <li><strong>Anregung:</strong> Energie bringt etwas in Bewegung. Man zupft, streicht, schlägt oder bläst.</li>
+                        <li><strong>Schwingender Körper (Tonerzeuger):</strong> Er schwingt schnell hin und her. Das kann eine Saite, ein Fell, ein Holzstab, eine Luftsäule oder die Stimmlippen sein.</li>
+                        <li><strong>Resonanzkörper:</strong> Ein Hohlraum oder Holzkörper, der mitschwingt. Er macht den Ton <strong>lauter und voller</strong>. Ohne ihn ist eine Saite kaum zu hören.</li>
+                    </ol>
+                    <div class="bg-white/85 p-4 rounded-2xl border border-amber-700/35 text-sm overflow-x-auto">
+                        <table class="w-full text-left">
+                            <thead><tr class="border-b border-amber-700/40"><th class="py-1 pr-3">Instrument</th><th class="py-1 pr-3">Tonerzeuger</th><th class="py-1">Resonanzkörper</th></tr></thead>
+                            <tbody>
+                                <tr class="border-b border-amber-700/20"><td class="py-1 pr-3">Gitarre</td><td class="py-1 pr-3">Saite</td><td class="py-1">Holzkasten mit Schallloch</td></tr>
+                                <tr class="border-b border-amber-700/20"><td class="py-1 pr-3">Trommel</td><td class="py-1 pr-3">Fell</td><td class="py-1">hohler Trommelkörper</td></tr>
+                                <tr class="border-b border-amber-700/20"><td class="py-1 pr-3">Xylophon</td><td class="py-1 pr-3">Holzstab</td><td class="py-1">Röhren unter den Stäben</td></tr>
+                                <tr><td class="py-1 pr-3">Stimme</td><td class="py-1 pr-3">Stimmlippen (Anregung: Atemluft)</td><td class="py-1">Mund, Rachen, Nase</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-sm bg-white/80 p-3 rounded-xl border border-amber-700/30"><strong>Tonhöhe:</strong> Kürzer, dünner und straffer schwingt schneller: der Ton wird <strong>höher</strong>. Länger, dicker und lockerer schwingt langsamer: der Ton wird <strong>tiefer</strong>.</p>
+                </div>
+
+                <div id="tab-6" class="lex-content hidden space-y-4">
+                    <h4 class="font-serif text-xl font-extrabold text-stage-900 border-b border-amber-700/30 pb-1">6. Kastraten & Countertenöre</h4>
+                    <p>Vor rund 300 Jahren durften Frauen in Kirchen und vielen Opernhäusern nicht öffentlich singen. Darum verhinderte man bei Jungen den Stimmbruch durch eine Operation.</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="bg-white/85 p-4 rounded-2xl border border-amber-700/35 space-y-1.5">
+                            <div class="font-extrabold text-velvet-700">👑 Kastraten</div>
+                            <p class="text-sm">Sie behielten den <strong>kleinen Kinder-Kehlkopf</strong> (hohe Töne) und bekamen <strong>Brustkorb und Lungenkraft eines Erwachsenen</strong>. Star: <strong>Farinelli</strong>.</p>
+                        </div>
+                        <div class="bg-white/85 p-4 rounded-2xl border border-amber-700/35 space-y-1.5">
+                            <div class="font-extrabold text-indigo-800">🎤 Countertenöre</div>
+                            <p class="text-sm">Heute ist die Operation verboten. Erwachsene Männer trainieren stattdessen ihre <strong>Kopfstimme (Falsett)</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ===================== SPIELZUSTAND =====================
+        const TOTAL_TIME = 55 * 60;
+        const gameState = {
+            started: false, currentRoom: 0, unlockedRooms: [1], solvedRooms: [],
+            timeLeft: TOTAL_TIME, timerRunning: false, timerInterval: null, muted: false,
+            hintsUsedPerRoom: { 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0, 7: 0 },
+            r2Selected: new Set(), r2Digits: { 1: 0, 2: 0, 3: 0, 4: 0 },
+            r3EarSeq: [],
+            r4Grid: { B: Array(8).fill(false), T: Array(8).fill(false), K: Array(8).fill(false), F: Array(8).fill(false) },
+            r4Playing: false,
+            r5MirrorUnflipped: false, r5AirLevel: 15, r5PhraseProgress: 0, r5Pressing: false, r5ChallengeDone: false, r5LoopInterval: null,
+            r6Clues: new Set(), r6Errors: new Set(), r6Digits: { 1: 0, 2: 0, 3: 0 }
+        };
+
+        const roomNames = { 1: 'Raum 1: Stimm-Maschine', 2: 'Raum 2: Stimmbruch', 3: 'Raum 3: Orchestergraben', 4: 'Raum 4: Beatbox-Studio', 5: 'Raum 5: Belcanto-Saal', 6: 'Raum 6: Kastraten-Loge', 7: 'Raum 7: Instrumenten-Werkstatt' };
+        const roomIcons = { 1: '🫁', 2: '📏', 3: '🎹', 4: '🎛️', 5: '🪞', 6: '👑', 7: '🎸' };
+
+        const roomHints = {
+            1: [
+                "💡 Drei Teile: Luft (Lunge), Ton (Stimmlippen), Klang (Mund und Rachen).",
+                "💡 Anrufe: Nichts schwingt = Stimmlippen. Dumpf = Resonanzraum. Luft alle = Lunge. Gähnen = Resonanzraum. Das Wort heißt Sog, die Stimmlippen schwingen.",
+                "💡 Das Lösungswort ist BERNOULLI."
+            ],
+            2: [
+                "💡 Prüfe Aussagen mit Zahlen und mit „schneller/langsamer“ besonders genau (Lexikon, Tab 2).",
+                "💡 Falsch sind die Karten 2, 3, 5 und 7.",
+                "💡 Code: 5 – 2 – 3 – 4 (8−3 Tonstufen, 10 mm Stimmlippen der Jungen ÷ 5, 3 mm bei Mädchen, vier falsche Karten)."
+            ],
+            3: [
+                "💡 Frauenstimmen sind höher als Männerstimmen. Schau ins Lexikon, Tab 3.",
+                "💡 Von hoch nach tief: Sopran, Mezzosopran, Alt, Tenor, Bariton, Bass.",
+                "💡 Teil B: Tenor, Alt, Bariton, Mezzosopran. Teil C: Koloratursopran, Heldentenor, Bassbuffo."
+            ],
+            4: [
+                "💡 Zähle die Schläge 1 bis 8. Gerade Schläge sind 2, 4, 6 und 8.",
+                "💡 Bass auf 1 und 5. Snare zwei Schläge später: 3 und 7.",
+                "💡 Hi-Hat 2, 4, 6, 8. Scratch nur auf 8. Tricks: Oberton, Beatbox, Imitation."
+            ],
+            5: [
+                "💡 Tippe auf den Zettel oder „Spiegeln“. Das Gegenteil von Staccato steht im Lexikon, Tab 5.",
+                "💡 Kurz drücken, loslassen, wieder drücken. Der Punkt muss zwischen 45 % und 75 % bleiben.",
+                "💡 Lösungswort: LEGATO. Belcanto = schöner Gesang, Koloratur = schnelle Verzierungen, Atemstütze = ruhige Bauchatmung."
+            ],
+            6: [
+                "💡 Tippe alles an, was Strom oder einen Motor braucht. Das gab es 1735 noch nicht. Es sind 6 Dinge.",
+                "💡 Teil B, Zeitstrahl: Verbot → Operation → Kastraten-Körper → Countertenöre. Name des Kastraten: Lexikon, Tab 6.",
+                "💡 Code: 4 – 3 – 6 (Farinelli = 4 Silben, 3 Teile der Stimm-Maschine, 6 Dinge von früher)."
+            ],
+            7: [
+                "💡 Jeder Ton braucht 3 Dinge: Anregung (Energie), einen schwingenden Körper und einen Resonanzkörper (Lexikon, Tab 7).",
+                "💡 Gitarre: Saite + Holzkasten. Trommel: Fell + hohler Zylinder. Xylophon: Holzstab + Röhren. Stimme: Stimmlippen + Mund, Rachen, Nase. Fehlersuche: Brett = Resonanzkörper, Koffer = Anregung, festgehalten = kann nicht schwingen, Bei der Stimmgabel liefert der Tisch den Resonanzkörper, in der Luft fehlte er.",
+                "💡 Höher klingen: Paar 1 = B (kurz), Paar 2 = A (dünn), Paar 3 = B (straff). Merksatz: kurz, dünn, straff = hoch; lang, dick, locker = tief."
+            ]
+        };
+
+        // ===================== AUDIO =====================
+        let audioCtx = null;
+        function initAudio() {
+            if (!audioCtx) {
+                const C = window.AudioContext || window.webkitAudioContext;
+                if (C) audioCtx = new C();
+            }
+            if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume().catch(() => {});
+        }
+        ['touchstart', 'pointerdown', 'click'].forEach(evt => document.addEventListener(evt, initAudio, { once: true, passive: true }));
+
+        function toggleMute() {
+            gameState.muted = !gameState.muted;
+            document.getElementById('mute-icon').textContent = gameState.muted ? '🔇' : '🔊';
+        }
+
+        function playClickSound() {
+            if (gameState.muted) return;
+            initAudio(); if (!audioCtx) return;
+            const now = audioCtx.currentTime;
+            const osc = audioCtx.createOscillator(), gain = audioCtx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(620, now);
+            osc.frequency.exponentialRampToValueAtTime(220, now + 0.04);
+            gain.gain.setValueAtTime(0.08, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.045);
+            osc.connect(gain); gain.connect(audioCtx.destination);
+            osc.start(now); osc.stop(now + 0.05);
+        }
+
+        function playVoiceTone(freq, duration = 0.95) {
+            if (gameState.muted) return;
+            initAudio(); if (!audioCtx) return;
+            const now = audioCtx.currentTime;
+            const o1 = audioCtx.createOscillator(), o2 = audioCtx.createOscillator();
+            const gain = audioCtx.createGain(), og = audioCtx.createGain();
+            o1.type = 'triangle'; o2.type = 'sine';
+            o1.frequency.setValueAtTime(freq, now);
+            o2.frequency.setValueAtTime(freq * 2, now);
+            og.gain.setValueAtTime(0.14, now);
+            gain.gain.setValueAtTime(0.001, now);
+            gain.gain.exponentialRampToValueAtTime(0.28, now + 0.05);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + duration);
+            o1.connect(gain); o2.connect(og); og.connect(gain); gain.connect(audioCtx.destination);
+            o1.start(now); o2.start(now);
+            o1.stop(now + duration + 0.05); o2.stop(now + duration + 0.05);
+        }
+
+        function noiseBurst(len, filterType, filterFreq, vol, dur) {
+            const now = audioCtx.currentTime;
+            const n = Math.floor(audioCtx.sampleRate * len);
+            const buf = audioCtx.createBuffer(1, n, audioCtx.sampleRate);
+            const d = buf.getChannelData(0);
+            for (let i = 0; i < n; i++) d[i] = Math.random() * 2 - 1;
+            const src = audioCtx.createBufferSource(); src.buffer = buf;
+            const f = audioCtx.createBiquadFilter(); f.type = filterType; f.frequency.setValueAtTime(filterFreq, now);
+            const g = audioCtx.createGain();
+            g.gain.setValueAtTime(vol, now);
+            g.gain.exponentialRampToValueAtTime(0.001, now + dur);
+            src.connect(f); f.connect(g); g.connect(audioCtx.destination);
+            src.start(now);
+        }
+
+        function playBeatboxSound(key) {
+            if (gameState.muted) return;
+            initAudio(); if (!audioCtx) return;
+            const now = audioCtx.currentTime;
+            if (key === 'B') {
+                const osc = audioCtx.createOscillator(), gain = audioCtx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(160, now);
+                osc.frequency.exponentialRampToValueAtTime(42, now + 0.22);
+                gain.gain.setValueAtTime(0.55, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.24);
+                osc.connect(gain); gain.connect(audioCtx.destination);
+                osc.start(now); osc.stop(now + 0.25);
+            } else if (key === 'T') {
+                noiseBurst(0.1, 'highpass', 6500, 0.32, 0.09);
+            } else if (key === 'K') {
+                noiseBurst(0.17, 'bandpass', 1750, 0.45, 0.16);
+            } else if (key === 'F') {
+                const osc = audioCtx.createOscillator(), gain = audioCtx.createGain();
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(520, now);
+                osc.frequency.exponentialRampToValueAtTime(180, now + 0.12);
+                osc.frequency.exponentialRampToValueAtTime(680, now + 0.22);
+                gain.gain.setValueAtTime(0.22, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.24);
+                osc.connect(gain); gain.connect(audioCtx.destination);
+                osc.start(now); osc.stop(now + 0.25);
+            }
+        }
+
+        function playFeedbackSound(type) {
+            if (gameState.muted) return;
+            initAudio(); if (!audioCtx) return;
+            const now = audioCtx.currentTime;
+            if (type === 'door' || type === 'victory') {
+                const notes = type === 'door' ? [440, 554.37, 659.25, 880] : [523.25, 659.25, 783.99, 1046.5, 1318.51];
+                const step = type === 'door' ? 0.08 : 0.12;
+                notes.forEach((f, i) => {
+                    const osc = audioCtx.createOscillator(), gain = audioCtx.createGain();
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(f, now + i * step);
+                    gain.gain.setValueAtTime(0.18, now + i * step);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + i * step + 0.7);
+                    osc.connect(gain); gain.connect(audioCtx.destination);
+                    osc.start(now + i * step); osc.stop(now + i * step + 0.75);
+                });
+            } else {
+                const osc = audioCtx.createOscillator(), gain = audioCtx.createGain();
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(145, now);
+                osc.frequency.linearRampToValueAtTime(115, now + 0.24);
+                gain.gain.setValueAtTime(0.13, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.28);
+                osc.connect(gain); gain.connect(audioCtx.destination);
+                osc.start(now); osc.stop(now + 0.3);
+            }
+        }
+
+        // ===================== HILFSFUNKTIONEN =====================
+        function selHTML(id, opts) {
+            return `<select id="${id}" class="w-full min-h-[48px] bg-stage-850 text-white rounded-xl px-3 py-2 border border-gold-400/35"><option value="">– wählen –</option>` +
+                opts.map(o => `<option value="${o[0]}">${o[1]}</option>`).join('') + `</select>`;
+        }
+        const val = id => document.getElementById(id).value;
+
+        function digitWheel(prefix, slot, label, question, stepFn) {
+            return `
+            <div class="bg-stage-950 p-4 rounded-2xl border border-gold-400/35 flex flex-col justify-between text-center space-y-3">
+                <div>
+                    <div class="text-xs text-gold-400 font-extrabold uppercase tracking-wider">${label}</div>
+                    <p class="text-sm text-slate-100 mt-1">${question}</p>
+                </div>
+                <div class="flex items-center justify-center gap-2 pt-1">
+                    <button type="button" onclick="${stepFn}(${slot}, -1)" class="w-12 h-12 rounded-xl bg-stage-850 hover:bg-stage-800 border border-gold-400/40 text-gold-300 text-2xl font-extrabold">−</button>
+                    <div id="${prefix}-digit-${slot}" class="w-12 h-12 rounded-xl bg-stage-900 border-2 border-gold-400 flex items-center justify-center font-mono text-2xl font-extrabold text-gold-300">0</div>
+                    <button type="button" onclick="${stepFn}(${slot}, 1)" class="w-12 h-12 rounded-xl bg-stage-850 hover:bg-stage-800 border border-gold-400/40 text-gold-300 text-2xl font-extrabold">+</button>
+                </div>
+            </div>`;
+        }
+
+        // Sortierliste mit Pfeilen (und Drag am Computer)
+        function makeSortList(containerId, arr, labelFn, extraFn) {
+            const container = document.getElementById(containerId);
+            let dragFrom = null;
+            function render() {
+                container.innerHTML = '';
+                arr.forEach((item, index) => {
+                    const row = document.createElement('div');
+                    row.draggable = window.matchMedia('(pointer: fine)').matches;
+                    row.className = 'flex items-center justify-between gap-2 bg-stage-900/95 border border-white/15 rounded-xl p-3 min-h-[58px]';
+                    row.addEventListener('dragstart', () => { dragFrom = index; });
+                    row.addEventListener('dragover', e => e.preventDefault());
+                    row.addEventListener('drop', e => {
+                        e.preventDefault();
+                        if (dragFrom !== null && dragFrom !== index) {
+                            const m = arr.splice(dragFrom, 1)[0];
+                            arr.splice(index, 0, m);
+                            playClickSound(); render();
+                        }
+                    });
+                    row.innerHTML = `
+                        <div class="flex items-center gap-3 min-w-0">${labelFn(item, index)}</div>
+                        <div class="flex items-center gap-2 shrink-0">
+                            ${extraFn ? extraFn(item, index) : ''}
+                            <button type="button" data-dir="-1" ${index === 0 ? 'disabled' : ''} aria-label="Nach oben" class="w-12 h-12 rounded-xl bg-stage-850 hover:bg-stage-800 disabled:opacity-30 text-white border border-white/20 font-extrabold text-sm">▲</button>
+                            <button type="button" data-dir="1" ${index === arr.length - 1 ? 'disabled' : ''} aria-label="Nach unten" class="w-12 h-12 rounded-xl bg-stage-850 hover:bg-stage-800 disabled:opacity-30 text-white border border-white/20 font-extrabold text-sm">▼</button>
+                        </div>`;
+                    row.querySelectorAll('button[data-dir]').forEach(b => {
+                        b.addEventListener('click', () => {
+                            playClickSound();
+                            const t = index + parseInt(b.dataset.dir, 10);
+                            if (t < 0 || t >= arr.length) return;
+                            [arr[index], arr[t]] = [arr[t], arr[index]];
+                            render();
+                        });
+                    });
+                    container.appendChild(row);
+                });
+            }
+            render();
+        }
+
+        // ===================== TIMER =====================
+        function startTimer() {
+            if (gameState.timerInterval) clearInterval(gameState.timerInterval);
+            gameState.timerRunning = true;
+            document.getElementById('timer-toggle-btn').textContent = '⏸';
+            gameState.timerInterval = setInterval(() => {
+                if (!gameState.timerRunning) return;
+                if (gameState.timeLeft > 0) {
+                    gameState.timeLeft--;
+                    const m = Math.floor(gameState.timeLeft / 60), s = gameState.timeLeft % 60;
+                    const el = document.getElementById('timer-display');
+                    el.textContent = `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+                    if (gameState.timeLeft <= 300) el.classList.add('text-velvet-500');
+                } else clearInterval(gameState.timerInterval);
+            }, 1000);
+        }
+        function toggleTimer() {
+            gameState.timerRunning = !gameState.timerRunning;
+            document.getElementById('timer-toggle-btn').textContent = gameState.timerRunning ? '⏸' : '▶';
+        }
+
+        // ===================== NAVIGATION =====================
+        function startGame() {
+            initAudio(); playFeedbackSound('door');
+            gameState.started = true;
+            document.getElementById('intro-screen').classList.add('hidden');
+            document.getElementById('opera-map-bar').classList.remove('hidden');
+            initRoom1(); initRoom2(); initRoom3(); initRoom4(); initRoom5(); initRoom6(); initRoom7();
+            navigateToRoom(1);
+            startTimer();
+        }
+
+        function navigateToRoom(n) {
+            if (!gameState.unlockedRooms.includes(n)) { playClickSound(); return; }
+            playClickSound();
+            gameState.currentRoom = n;
+            for (let i = 1; i <= 7; i++) document.getElementById(`room-${i}`).classList.add('hidden');
+            document.getElementById('victory-screen').classList.add('hidden');
+            document.getElementById(`room-${n}`).classList.remove('hidden');
+            document.getElementById('map-location-label').textContent = roomNames[n];
+            updateOperaMap();
+            try {
+                const sc = document.getElementById('opera-nav-scroll'), cur = document.getElementById('nav-room-' + n);
+                const off = cur.getBoundingClientRect().left - sc.getBoundingClientRect().left + sc.scrollLeft;
+                sc.scrollTo({ left: Math.max(0, off - (sc.clientWidth - cur.clientWidth) / 2), behavior: 'smooth' });
+            } catch (e) {}
+            if (n === 5) startRoom5BreathLoop();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function updateOperaMap() {
+            for (let i = 1; i <= 7; i++) {
+                const btn = document.getElementById(`nav-room-${i}`);
+                const badge = btn.querySelector('.status-badge');
+                const solved = gameState.solvedRooms.includes(i), unlocked = gameState.unlockedRooms.includes(i), current = gameState.currentRoom === i;
+                const base = 'shrink-0 min-w-[150px] lg:min-w-0 lg:flex-1 min-h-[48px] rounded-xl p-2 border text-left transition flex items-center gap-2 ';
+                const bb = 'status-badge w-7 h-7 rounded-lg flex items-center justify-center text-sm font-extrabold shrink-0 ';
+                if (current) {
+                    btn.className = 'room-nav-btn ' + base + 'bg-gradient-to-r from-gold-400/25 to-velvet-600/25 border-gold-400 text-white active-portal-glow cursor-pointer';
+                    badge.className = bb + 'bg-gold-400 text-stage-950'; badge.textContent = roomIcons[i];
+                } else if (solved) {
+                    btn.className = 'room-nav-btn ' + base + 'bg-emerald-500/15 border-emerald-400/50 text-emerald-200 hover:bg-emerald-500/25 cursor-pointer';
+                    badge.className = bb + 'bg-emerald-400 text-stage-950'; badge.textContent = '✓';
+                } else if (unlocked) {
+                    btn.className = 'room-nav-btn ' + base + 'bg-stage-850 border-gold-400/35 text-slate-200 hover:bg-stage-800 cursor-pointer';
+                    badge.className = bb + 'bg-stage-800 text-gold-300'; badge.textContent = roomIcons[i];
+                } else {
+                    btn.className = 'room-nav-btn ' + base + 'bg-stage-950/60 border-white/10 text-slate-500 cursor-not-allowed';
+                    badge.className = bb + 'bg-stage-900 text-slate-500'; badge.textContent = '🔒';
+                }
+            }
+        }
+
+        function requestHint(n) {
+            playClickSound();
+            const used = gameState.hintsUsedPerRoom[n], hints = roomHints[n];
+            if (used >= hints.length) return;
+            gameState.hintsUsedPerRoom[n]++;
+            document.getElementById(`r${n}-hint-count`).textContent = `${used + 1}/3`;
+            const box = document.getElementById(`r${n}-hints-box`);
+            box.classList.remove('hidden');
+            const el = document.createElement('div');
+            el.className = 'bg-stage-950/95 border border-gold-400/40 rounded-xl p-4 text-sm sm:text-base text-gold-200 leading-relaxed';
+            el.textContent = hints[used];
+            box.appendChild(el);
+        }
+
+        function showFeedback(n, ok, msg) {
+            const fb = document.getElementById(`r${n}-feedback`);
+            fb.classList.remove('hidden', 'bg-rose-950/85', 'border-rose-500/60', 'text-rose-200', 'bg-emerald-950/85', 'border-emerald-400/60', 'text-emerald-200', 'animate-shake');
+            void fb.offsetWidth;
+            if (ok) { fb.classList.add('bg-emerald-950/85', 'border', 'border-emerald-400/60', 'text-emerald-200'); playFeedbackSound('door'); }
+            else { fb.classList.add('bg-rose-950/85', 'border', 'border-rose-500/60', 'text-rose-200', 'animate-shake'); playFeedbackSound('error'); }
+            fb.innerHTML = msg;
+        }
+
+        function completeRoom(n) {
+            if (!gameState.solvedRooms.includes(n)) gameState.solvedRooms.push(n);
+            if (n < 7 && !gameState.unlockedRooms.includes(n + 1)) gameState.unlockedRooms.push(n + 1);
+            updateOperaMap();
+        }
+
+        // ===================== RAUM 1 =====================
+        const r1Parts = [['lunge', 'Lunge & Zwerchfell'], ['stimmlippen', 'Stimmlippen'], ['resonanz', 'Mund- & Rachenraum']];
+        const r1Calls = [
+            { t: '„Kein Ton! Die Luft strömt, aber nichts schwingt.“', a: 'stimmlippen' },
+            { t: '„Der Ton ist dünn und dumpf. Es fehlt der Verstärker.“', a: 'resonanz' },
+            { t: '„Nach zwei Sekunden geht uns die Luft aus.“', a: 'lunge' },
+            { t: '„Wir gähnen – und der Klang wird plötzlich voller.“', a: 'resonanz' }
+        ];
+        function initRoom1() {
+            document.getElementById('r1-calls').innerHTML = r1Calls.map((c, i) => `
+                <div class="bg-stage-900/90 p-4 rounded-xl border border-white/10 space-y-2.5">
+                    <p class="text-base text-slate-100">📞 <strong>Anruf ${i + 1}:</strong> ${c.t}</p>
+                    ${selHTML('r1-call-' + i, r1Parts)}
+                </div>`).join('');
+            document.getElementById('r1-gap-1-wrap').innerHTML = selHTML('r1-gap-1', [['sog', 'Sog'], ['stau', 'Stau'], ['echo', 'Echo']]);
+            document.getElementById('r1-gap-2-wrap').innerHTML = selHTML('r1-gap-2', [['schwingen', 'schwingen'], ['erstarren', 'erstarren'], ['wachsen', 'wachsen']]);
+        }
+        function checkRoom1() {
+            const callsOk = r1Calls.every((c, i) => val('r1-call-' + i) === c.a);
+            const gapOk = val('r1-gap-1') === 'sog' && val('r1-gap-2') === 'schwingen';
+            const code = val('r1-codeword').trim().toLowerCase();
+            const codeOk = code === 'bernoulli' || code === 'daniel bernoulli';
+            if (callsOk && gapOk && codeOk) {
+                showFeedback(1, true, '🎉 <strong>Maschine repariert!</strong> Weiter zu Raum 2.');
+                completeRoom(1); setTimeout(() => navigateToRoom(2), 1200);
+            } else {
+                let m = '❌ Noch nicht ganz. ';
+                if (!callsOk) m += 'Teil A: Mindestens ein Anruf stimmt nicht. ';
+                if (!gapOk) m += 'Teil B: Der Lückentext passt noch nicht. ';
+                if (!codeOk) m += 'Das Lösungswort fehlt oder ist falsch.';
+                showFeedback(1, false, m);
+            }
+        }
+
+        // ===================== RAUM 2 =====================
+        const r2Statements = [
+            { t: 'Testosteron lässt Kehlkopf und Stimmlippen wachsen.', f: false },
+            { t: 'Nur Jungen haben einen Stimmbruch. Bei Mädchen ändert sich nichts.', f: true },
+            { t: 'Längere Stimmlippen schwingen schneller, darum wird die Stimme tiefer.', f: true },
+            { t: 'Der Adamsapfel entsteht, weil der Kehlkopf nach vorn wächst.', f: false },
+            { t: 'Wenn die Stimme kippt, hilft es, kräftig zu brüllen und zu pressen.', f: true },
+            { t: 'Die Mädchenstimme sinkt etwa um eine Terz.', f: false },
+            { t: 'Die Jungenstimme sinkt im Stimmbruch nur um etwa 3 Tonstufen.', f: true },
+            { t: 'Bei Mädchen wachsen die Stimmlippen mindestens 3 mm.', f: false }
+        ];
+        function initRoom2() {
+            document.getElementById('r2-statements').innerHTML = r2Statements.map((s, i) => `
+                <button type="button" onclick="toggleR2Statement(${i}, this)" class="min-h-[70px] p-4 rounded-2xl bg-stage-900/95 border-2 border-white/15 text-left transition flex items-start gap-3">
+                    <span class="stmt-icon text-xl shrink-0 mt-0.5">⬜</span>
+                    <span class="text-base text-slate-100 leading-snug"><strong>${i + 1}.</strong> ${s.t}</span>
+                </button>`).join('');
+            document.getElementById('r2-lock').innerHTML =
+                digitWheel('r2', 1, 'Ziffer 1', 'Um wie viele Tonstufen sinkt die Jungenstimme <strong>mehr</strong> als die Mädchenstimme?', 'stepLockDigit') +
+                digitWheel('r2', 2, 'Ziffer 2', 'Wachstum der Stimmlippen bei <strong>Jungen</strong> in mm, geteilt durch 5.', 'stepLockDigit') +
+                digitWheel('r2', 3, 'Ziffer 3', 'Mindestwachstum der Stimmlippen bei Mädchen in mm.', 'stepLockDigit') +
+                digitWheel('r2', 4, 'Ziffer 4', 'Wie viele Aussagen in Teil A sind falsch?', 'stepLockDigit');
+        }
+        function toggleR2Statement(i, btn) {
+            playClickSound();
+            const icon = btn.querySelector('.stmt-icon');
+            if (gameState.r2Selected.has(i)) {
+                gameState.r2Selected.delete(i);
+                btn.classList.remove('border-velvet-500', 'bg-velvet-700/20'); btn.classList.add('border-white/15', 'bg-stage-900/95');
+                icon.textContent = '⬜';
+            } else {
+                gameState.r2Selected.add(i);
+                btn.classList.remove('border-white/15', 'bg-stage-900/95'); btn.classList.add('border-velvet-500', 'bg-velvet-700/20');
+                icon.textContent = '🚨';
+            }
+            document.getElementById('r2-selected-count').textContent = `Markiert: ${gameState.r2Selected.size}`;
+        }
+        function stepLockDigit(slot, d) {
+            playClickSound();
+            gameState.r2Digits[slot] = (gameState.r2Digits[slot] + d + 10) % 10;
+            document.getElementById(`r2-digit-${slot}`).textContent = gameState.r2Digits[slot];
+        }
+        function checkRoom2() {
+            const sel = gameState.r2Selected;
+            const falseIdx = r2Statements.map((s, i) => s.f ? i : -1).filter(i => i >= 0);
+            const falseOk = sel.size === falseIdx.length && falseIdx.every(i => sel.has(i));
+            const d = gameState.r2Digits;
+            const codeOk = d[1] === 5 && d[2] === 2 && d[3] === 3 && d[4] === 4;
+            if (falseOk && codeOk) {
+                showFeedback(2, true, '🔓 <strong>Alle Lügen entlarvt, Schloss offen!</strong> Weiter zu Raum 3.');
+                completeRoom(2); setTimeout(() => navigateToRoom(3), 1200);
+            } else {
+                let m = '❌ Das Schloss bleibt zu. ';
+                if (!falseOk) m += 'Teil A: Nicht alle falschen Aussagen sind richtig markiert. ';
+                if (!codeOk) m += 'Teil B: Rechne die vier Ziffern noch einmal nach.';
+                showFeedback(2, false, m);
+            }
+        }
+
+        // ===================== RAUM 3 =====================
+        const voiceRanks = ['Sopran', 'Mezzosopran', 'Alt', 'Tenor', 'Bariton', 'Bass'];
+        let r3Voices = ['Alt', 'Bass', 'Sopran', 'Bariton', 'Mezzosopran', 'Tenor'].map(n => ({ n }));
+        const r3Who = [
+            { t: 'Ich bin die höchste Männerstimme.', a: 'Tenor' },
+            { t: 'Ich bin die tiefste Frauenstimme.', a: 'Alt' },
+            { t: 'Ich bin die mittlere Männerstimme.', a: 'Bariton' },
+            { t: 'Ich bin die mittlere Frauenstimme.', a: 'Mezzosopran' }
+        ];
+        function initRoom3() {
+            makeSortList('r3-sortable-list', r3Voices,
+                (item, i) => `
+                    <span class="w-8 h-8 rounded-lg bg-gold-400/20 border border-gold-400/50 text-gold-300 font-extrabold text-sm flex items-center justify-center shrink-0">${i + 1}</span>
+                    <span class="font-extrabold text-base text-white">${item.n}</span>`
+            );
+            const vopts = voiceRanks.map(v => [v, v]);
+            document.getElementById('r3-who').innerHTML = r3Who.map((w, i) => `
+                <div class="bg-stage-900/90 p-4 rounded-xl border border-white/10 space-y-2.5">
+                    <p class="text-base text-slate-100"><strong>Sänger ${i + 1}:</strong> „${w.t}“</p>
+                    ${selHTML('r3-who-' + i, vopts)}
+                </div>`).join('');
+            const roles = [
+                { t: 'Ich singe glockenhell und blitzschnell. Meine Verzierungen sind mein Markenzeichen.' },
+                { t: 'Ich bin die strahlende, kräftige Männerstimme. Ritter und Helden sind meine Rollen.' },
+                { t: 'Ich brumme tief, bin lustig und plappere im Eiltempo.' }
+            ];
+            const opts = [['koloratursopran', 'Koloratursopran'], ['heldentenor', 'Heldentenor'], ['bassbuffo', 'Bassbuffo']];
+            document.getElementById('r3-roles').innerHTML = roles.map((r, i) => `
+                <div class="bg-stage-900/90 p-4 rounded-xl border border-white/10 space-y-2.5 flex flex-col justify-between">
+                    <p class="text-sm text-slate-100 leading-relaxed"><strong>Anzeige ${i + 1}:</strong> ${r.t}</p>
+                    ${selHTML('r3-fach-' + (i + 1), opts)}
+                </div>`).join('');
+        }
+        function checkRoom3() {
+            const orderOk = r3Voices.every((v, i) => v.n === voiceRanks[i]);
+            const whoOk = r3Who.every((w, i) => val('r3-who-' + i) === w.a);
+            const fachOk = val('r3-fach-1') === 'koloratursopran' && val('r3-fach-2') === 'heldentenor' && val('r3-fach-3') === 'bassbuffo';
+            if (orderOk && whoOk && fachOk) {
+                showFeedback(3, true, '🎹 <strong>Gut sortiert!</strong> Weiter ins Beatbox-Studio.');
+                completeRoom(3); setTimeout(() => navigateToRoom(4), 1200);
+            } else {
+                let m = '❌ Noch nicht ganz. ';
+                if (!orderOk) m += 'Teil A: Die Stimmlagen sind noch nicht richtig sortiert. ';
+                if (!whoOk) m += 'Teil B: Prüfe Frauen- und Männerstimmen im Lexikon. ';
+                if (!fachOk) m += 'Teil C: Prüfe die Rollen im Lexikon.';
+                showFeedback(3, false, m);
+            }
+        }
+
+        // ===================== RAUM 4 =====================
+        const r4Rows = [
+            { k: 'B', name: 'Lippen-Bass' },
+            { k: 'K', name: 'Gaumen-Snare' },
+            { k: 'T', name: 'Zungen-Hi-Hat' },
+            { k: 'F', name: 'Zahn-Scratch' }
+        ];
+        function initRoom4() {
+            renderR4Grid();
+            const scen = [
+                'Ein Mann brummt tief. Gleichzeitig hört man darüber eine zarte Pfeif-Melodie.',
+                'Ein Schüler macht mit Mund, Lippen und Zunge ein ganzes Schlagzeug.',
+                'Eine Komikerin klingt erst wie ein Papagei, dann wie ein Martinshorn.'
+            ];
+            const opts = [['oberton', 'Obertongesang'], ['beatbox', 'Beatboxing'], ['imitation', 'Stimm-Imitation'], ['legato', 'Legato']];
+            document.getElementById('r4-tricks').innerHTML = scen.map((s, i) => `
+                <div class="bg-stage-900/90 p-4 rounded-xl border border-white/10 space-y-2.5">
+                    <p class="text-sm text-slate-100 leading-relaxed">🎭 <strong>Szene ${i + 1}:</strong> ${s}</p>
+                    ${selHTML('r4-tech-' + (i + 1), opts)}
+                </div>`).join('');
+        }
+        function renderR4Grid() {
+            const el = document.getElementById('r4-grid');
+            const head = `<div class="grid gap-1.5 items-center min-w-[520px]" style="grid-template-columns: 130px repeat(8, 1fr);">
+                <div></div>` + [1,2,3,4,5,6,7,8].map(n => `<div class="step-head text-center text-xs font-extrabold text-slate-400" id="r4-head-${n - 1}">${n}</div>`).join('') + `</div>`;
+            const rows = r4Rows.map(r => `
+                <div class="grid gap-1.5 items-center min-w-[520px]" style="grid-template-columns: 130px repeat(8, 1fr);">
+                    <button type="button" onclick="playBeatboxSound('${r.k}')" class="min-h-[48px] px-2 rounded-xl bg-stage-850 hover:bg-stage-800 border border-gold-400/40 text-gold-300 text-xs sm:text-sm font-bold text-left">🔊 ${r.name}</button>
+                    ${gameState.r4Grid[r.k].map((on, i) => `<button type="button" id="cell-${r.k}-${i}" onclick="toggleR4Cell('${r.k}', ${i})" aria-label="${r.name} Schlag ${i + 1}" class="grid-cell ${on ? 'on' : ''}"></button>`).join('')}
+                </div>`).join('');
+            el.innerHTML = head + rows;
+        }
+        function toggleR4Cell(k, i) {
+            gameState.r4Grid[k][i] = !gameState.r4Grid[k][i];
+            if (gameState.r4Grid[k][i]) playBeatboxSound(k); else playClickSound();
+            document.getElementById(`cell-${k}-${i}`).classList.toggle('on', gameState.r4Grid[k][i]);
+        }
+        function resetR4Grid() {
+            playClickSound();
+            ['B', 'T', 'K', 'F'].forEach(k => gameState.r4Grid[k] = Array(8).fill(false));
+            renderR4Grid();
+        }
+        function playR4Beat() {
+            if (gameState.r4Playing) return;
+            gameState.r4Playing = true;
+            for (let step = 0; step < 8; step++) {
+                setTimeout(() => {
+                    document.querySelectorAll('.step-head').forEach(h => h.classList.remove('playing'));
+                    const h = document.getElementById(`r4-head-${step}`); if (h) h.classList.add('playing');
+                    ['B', 'K', 'T', 'F'].forEach(k => { if (gameState.r4Grid[k][step]) playBeatboxSound(k); });
+                    if (step === 7) setTimeout(() => {
+                        gameState.r4Playing = false;
+                        document.querySelectorAll('.step-head').forEach(x => x.classList.remove('playing'));
+                    }, 280);
+                }, step * 280);
+            }
+        }
+        function checkRoom4() {
+            const want = { B: [0, 4], K: [2, 6], T: [1, 3, 5, 7], F: [7] };
+            const wrongRows = [];
+            r4Rows.forEach(r => {
+                const got = gameState.r4Grid[r.k].map((on, i) => on ? i : -1).filter(i => i >= 0);
+                const ok = got.length === want[r.k].length && want[r.k].every(i => got.includes(i));
+                if (!ok) wrongRows.push(r.name);
+            });
+            const techOk = val('r4-tech-1') === 'oberton' && val('r4-tech-2') === 'beatbox' && val('r4-tech-3') === 'imitation';
+            if (!wrongRows.length && techOk) {
+                showFeedback(4, true, '🎛️ <strong>Der Beat sitzt!</strong> Weiter in Raum 5.');
+                completeRoom(4); setTimeout(() => navigateToRoom(5), 1200);
+            } else {
+                let m = '❌ Noch nicht ganz. ';
+                if (wrongRows.length) m += 'Teil A: Das stimmt noch nicht: ' + wrongRows.join(', ') + '. ';
+                if (!techOk) m += 'Teil B: Prüfe die drei Szenen.';
+                showFeedback(4, false, m);
+            }
+        }
+
+        // ===================== RAUM 5 =====================
+        const r5Terms = [
+            { name: 'Belcanto', a: 'sg' },
+            { name: 'Staccato', a: 'st' },
+            { name: 'Koloraturen', a: 'ko' },
+            { name: 'Atemstütze', a: 'at' }
+        ];
+        function initRoom5() {
+            const opts = [['sg', 'Schöner Gesang'], ['st', 'Kurz und abgesetzt'], ['ko', 'Schnelle Läufe, Triller, Verzierungen'], ['at', 'Ruhige Bauchatmung für lange Melodien']];
+            document.getElementById('r5-terms').innerHTML = r5Terms.map((t, i) => `
+                <div class="bg-stage-900/90 p-4 rounded-xl border border-white/10 space-y-2">
+                    <div class="font-bold text-gold-300 text-base">${t.name}</div>
+                    ${selHTML('r5-term-' + i, opts)}
+                </div>`).join('');
+            initRoom5MirrorTouch();
+        }
+        function initRoom5MirrorTouch() {
+            const box = document.getElementById('r5-mirror-container');
+            const lens = document.getElementById('r5-lens-indicator');
+            function updateLens(x0, y0) {
+                const r = box.getBoundingClientRect();
+                lens.classList.remove('hidden');
+                lens.style.left = Math.max(0, Math.min(r.width, x0 - r.left)) + 'px';
+                lens.style.top = Math.max(0, Math.min(r.height, y0 - r.top)) + 'px';
+            }
+            box.addEventListener('pointerdown', e => {
+                updateLens(e.clientX, e.clientY);
+                if (!gameState.r5MirrorUnflipped) toggleMirrorFullFlip();
+            });
+            box.addEventListener('pointermove', e => { if (e.buttons > 0 || e.pointerType === 'touch') updateLens(e.clientX, e.clientY); });
+        }
+        function toggleMirrorFullFlip() {
+            playClickSound();
+            gameState.r5MirrorUnflipped = !gameState.r5MirrorUnflipped;
+            const c = document.getElementById('r5-mirror-content'), b = document.getElementById('r5-flip-btn');
+            c.classList.toggle('mirrored-text', !gameState.r5MirrorUnflipped);
+            b.textContent = gameState.r5MirrorUnflipped ? '🪞 Wieder spiegeln' : '🪞 Spiegeln';
+        }
+        function setBreathPress(down, e) {
+            if (e && e.cancelable) e.preventDefault();
+            if (down && !gameState.r5Pressing) playClickSound();
+            gameState.r5Pressing = down;
+        }
+        function startRoom5BreathLoop() {
+            if (gameState.r5LoopInterval) clearInterval(gameState.r5LoopInterval);
+            gameState.r5LoopInterval = setInterval(() => {
+                if (gameState.currentRoom !== 5 || gameState.r5ChallengeDone) return;
+                const s = gameState;
+                s.r5AirLevel = s.r5Pressing ? Math.min(96, s.r5AirLevel + 3.0) : Math.max(4, s.r5AirLevel - 2.4);
+                const cursor = document.getElementById('r5-air-cursor');
+                cursor.style.left = `calc(${s.r5AirLevel}% - 10px)`;
+                cursor.classList.remove('bg-gold-400', 'bg-emerald-400', 'bg-rose-500');
+                if (s.r5AirLevel >= 45 && s.r5AirLevel <= 75) {
+                    cursor.classList.add('bg-emerald-400');
+                    s.r5PhraseProgress = Math.min(100, s.r5PhraseProgress + 1.4);
+                } else if (s.r5AirLevel > 75) {
+                    cursor.classList.add('bg-rose-500');
+                    s.r5PhraseProgress = Math.max(0, s.r5PhraseProgress - 1.2);
+                } else {
+                    cursor.classList.add('bg-gold-400');
+                }
+                const pct = Math.round(s.r5PhraseProgress);
+                document.getElementById('r5-phrase-bar').style.width = pct + '%';
+                document.getElementById('r5-phrase-text').textContent = pct + '%';
+                if (pct >= 100) {
+                    s.r5ChallengeDone = true; s.r5Pressing = false;
+                    const b = document.getElementById('r5-challenge-badge');
+                    b.textContent = '✓ Bestanden!';
+                    b.className = 'text-xs sm:text-sm px-3.5 py-1.5 rounded-full bg-emerald-500/20 border border-emerald-400 text-emerald-300 font-bold';
+                    playFeedbackSound('door');
+                }
+            }, 80);
+        }
+        function checkRoom5() {
+            const cw = val('r5-codeword').trim().toLowerCase();
+            if (cw !== 'legato') { showFeedback(5, false, '⚠️ Teil A: Das Lösungswort stimmt noch nicht.'); return; }
+            if (!gameState.r5ChallengeDone) { showFeedback(5, false, '⚠️ Teil B: Die Atem-Prüfung fehlt noch.'); return; }
+            const termsOk = r5Terms.every((t, i) => val('r5-term-' + i) === t.a);
+            if (termsOk) {
+                showFeedback(5, true, '🪞 <strong>Bravo!</strong> Das Spiegel-Portal öffnet sich zum Finale.');
+                completeRoom(5); setTimeout(() => navigateToRoom(6), 1200);
+            } else {
+                showFeedback(5, false, '❌ Teil C: Eine Zuordnung stimmt nicht. Schau ins Lexikon (Tab 5).');
+            }
+        }
+
+        // ===================== RAUM 6 =====================
+        const r6Items = [
+            { id: 'i1', e: '📜', l: 'Schriftrolle', ok: true },
+            { id: 'a1', e: '📱', l: 'Handy', ok: false, n: 'Handys gab es 1735 noch nicht.' },
+            { id: 'i2', e: '🕯️', l: 'Kerze', ok: true },
+            { id: 'a2', e: '💡', l: 'Glühbirne', ok: false, n: 'Elektrisches Licht gab es 1735 noch nicht.' },
+            { id: 'i3', e: '👑', l: 'Krone', ok: true },
+            { id: 'a3', e: '📺', l: 'Fernseher', ok: false, n: 'Fernseher gab es 1735 noch nicht.' },
+            { id: 'i4', e: '🎻', l: 'Geige', ok: true },
+            { id: 'a4', e: '🚗', l: 'Auto', ok: false, n: 'Autos gab es 1735 noch nicht.' },
+            { id: 'i5', e: '🪶', l: 'Federkiel', ok: true },
+            { id: 'a5', e: '🎧', l: 'Kopfhörer', ok: false, n: 'Kopfhörer gab es 1735 noch nicht.' },
+            { id: 'i6', e: '🎭', l: 'Theater-Maske', ok: true },
+            { id: 'a6', e: '💻', l: 'Laptop', ok: false, n: 'Laptops gab es 1735 noch nicht.' }
+        ];
+        const r6Total = r6Items.filter(x => !x.ok).length;
+        const r6Tapped = new Set();
+        let r6LastWrong = '';
+        let r6Timeline = [
+            { id: 'b', t: 'Kastraten behalten den Kinder-Kehlkopf und bekommen eine große Lunge.' },
+            { id: 'd', t: 'Man verhindert bei Jungen den Stimmbruch durch eine Operation.' },
+            { id: 'a', t: 'Heute trainieren Countertenöre ihre Kopfstimme (Falsett).' },
+            { id: 'c', t: 'Frauen dürfen nicht öffentlich singen.' }
+        ];
+        function initRoom6() {
+            document.getElementById('r6-stage').innerHTML = r6Items.map(it => `
+                <button type="button" id="r6-item-${it.id}" onclick="tapStageItem('${it.id}', this)" aria-label="${it.l}" class="min-h-[104px] p-2 rounded-2xl bg-stage-900/95 border-2 border-white/15 flex flex-col items-center justify-center gap-1 transition">
+                    <span class="text-4xl">${it.e}</span>
+                    <span class="text-xs sm:text-sm font-bold text-slate-200">${it.l}</span>
+                </button>`).join('');
+            makeSortList('r6-timeline', r6Timeline,
+                (item, i) => `<span class="w-8 h-8 rounded-lg bg-gold-400/20 border border-gold-400/50 text-gold-300 font-extrabold text-sm flex items-center justify-center shrink-0">${i + 1}</span><span class="text-base text-white">${item.t}</span>`);
+            document.getElementById('r6-lock').innerHTML =
+                digitWheel('r6', 1, 'Ziffer 1', 'Wie viele Silben hat der Name des berühmtesten Kastraten?', 'stepMasterDigit') +
+                digitWheel('r6', 2, 'Ziffer 2', 'Aus Raum 1: Aus wie vielen Teilen besteht die Stimm-Maschine?', 'stepMasterDigit') +
+                digitWheel('r6', 3, 'Ziffer 3', 'Wie viele Zeitfehler hast du auf der Bühne gefunden?', 'stepMasterDigit');
+        }
+        function tapStageItem(id, btn) {
+            if (r6Tapped.has(id)) return;
+            r6Tapped.add(id);
+            playClickSound();
+            const it = r6Items.find(x => x.id === id);
+            if (!it.ok) {
+                btn.classList.add('hotspot-found-true');
+                gameState.r6Errors.add(id);
+                r6LastWrong = '';
+            } else {
+                btn.classList.add('hotspot-found-decoy');
+                r6LastWrong = `${it.e} <strong>${it.l}:</strong> Das gab es 1735 schon.`;
+            }
+            document.getElementById('r6-error-counter').textContent = `Gefunden: ${gameState.r6Errors.size} / ${r6Total}`;
+            const log = document.getElementById('r6-clues-log');
+            let html = '';
+            if (r6LastWrong) html += `<div class="bg-stage-950/90 border border-gold-400/25 rounded-xl p-3.5 text-slate-200 md:col-span-2">${r6LastWrong}</div>`;
+            [...gameState.r6Errors].forEach(k => {
+                const f = r6Items.find(x => x.id === k);
+                html += `<div class="bg-emerald-950/85 border border-emerald-400/60 text-emerald-200 rounded-xl p-3.5 leading-snug">${f.e} <strong>Richtig!</strong> ${f.n}</div>`;
+            });
+            log.innerHTML = html;
+        }
+        function stepMasterDigit(slot, d) {
+            playClickSound();
+            gameState.r6Digits[slot] = (gameState.r6Digits[slot] + d + 10) % 10;
+            document.getElementById(`r6-digit-${slot}`).textContent = gameState.r6Digits[slot];
+        }
+        function checkRoom6() {
+            if (gameState.r6Errors.size < r6Total) {
+                showFeedback(6, false, `⚠️ Teil A: Es fehlen noch Dinge, die es 1735 nicht gab. Gefunden: ${gameState.r6Errors.size} von ${r6Total}.`);
+                return;
+            }
+            const expected = ['c', 'd', 'b', 'a'];
+            const timeOk = r6Timeline.every((x, i) => x.id === expected[i]);
+            const d = gameState.r6Digits;
+            const codeOk = d[1] === 4 && d[2] === 3 && d[3] === r6Total;
+            if (timeOk && codeOk) {
+                showFeedback(6, true, '👑 <strong>Meister-Code geknackt!</strong> Zum letzten Raum.');
+                completeRoom(6); setTimeout(() => navigateToRoom(7), 1200);
+            } else {
+                let m = '❌ Noch nicht ganz. ';
+                if (!timeOk) m += 'Teil B: Der Zeitstrahl stimmt nicht. ';
+                if (!codeOk) m += 'Teil C: Der Meister-Code stimmt nicht.';
+                showFeedback(6, false, m);
+            }
+        }
+
+        // ===================== RAUM 7 =====================
+        const r7Inst = [
+            { name: '🎸 Gitarre', t: 'saite', r: 'kasten' },
+            { name: '🥁 Trommel', t: 'fell', r: 'zylinder' },
+            { name: 'Xylophon', t: 'holzstab', r: 'roehren' },
+            { name: '🗣️ Stimme', t: 'stimmlippen', r: 'mundraum' }
+        ];
+        const r7Cases = [
+            { t: 'Eine Saite ist auf ein dünnes Brett gespannt. Man zupft sie und hört fast nichts.', a: 'resonanz' },
+            { t: 'Die Gitarre liegt im Koffer. Niemand berührt sie. Es bleibt still.', a: 'anregung' },
+            { t: 'Jemand hält die Saite mit der ganzen Hand fest und zupft. Es kommt kein Ton.', a: 'schwing' },
+            { t: 'Eine angeschlagene Stimmgabel in der Luft ist kaum zu hören. Hält man sie auf eine Tischplatte, wird sie laut. Was hat der Stimmgabel in der Luft gefehlt?', a: 'resonanz' }
+        ];
+        const r7Pairs = [
+            { label: 'Länge', A: { d: 'lange Saite', f: 220 }, B: { d: 'kurze Saite', f: 440 }, a: 'B' },
+            { label: 'Dicke', A: { d: 'dünne Saite', f: 392 }, B: { d: 'dicke Saite', f: 196 }, a: 'A' },
+            { label: 'Spannung', A: { d: 'lockere Saite', f: 247 }, B: { d: 'straffe Saite', f: 370 }, a: 'B' }
+        ];
+        function initRoom7() {
+            const tOpts = [['saite', 'Saite'], ['fell', 'Fell'], ['holzstab', 'Holzstab'], ['stimmlippen', 'Stimmlippen'], ['luft', 'Luftsäule']];
+            const rOpts = [['kasten', 'Holzkasten mit Loch'], ['zylinder', 'Hohler Zylinder'], ['roehren', 'Röhren unter den Stäben'], ['mundraum', 'Mund, Rachen, Nase'], ['rohr', 'Rohr (wie bei der Flöte)']];
+            document.getElementById('r7-xray').innerHTML = r7Inst.map((x, i) => `
+                <div class="bg-stage-900/90 p-4 rounded-xl border border-white/10 space-y-2.5">
+                    <div class="font-bold text-gold-300 text-base">${x.name}</div>
+                    <div class="text-xs text-slate-300">Tonerzeuger (schwingt)</div>
+                    ${selHTML('r7-t-' + i, tOpts)}
+                    <div class="text-xs text-slate-300">Resonanzkörper (verstärkt)</div>
+                    ${selHTML('r7-r-' + i, rOpts)}
+                </div>`).join('');
+            const cOpts = [['anregung', 'Die Anregung fehlt'], ['schwing', 'Der Tonerzeuger kann nicht schwingen'], ['resonanz', 'Der Resonanzkörper fehlt']];
+            document.getElementById('r7-cases').innerHTML = r7Cases.map((c, i) => `
+                <div class="bg-stage-900/90 p-4 rounded-xl border border-white/10 space-y-2.5">
+                    <p class="text-base text-slate-100"><strong>Fall ${i + 1}:</strong> ${c.t}</p>
+                    ${selHTML('r7-case-' + i, cOpts)}
+                </div>`).join('');
+            document.getElementById('r7-pairs').innerHTML = r7Pairs.map((p, i) => `
+                <div class="bg-stage-900/90 p-4 rounded-xl border border-white/10 space-y-2.5">
+                    <div class="font-bold text-gold-300 text-base">Paar ${i + 1}: ${p.label}</div>
+                    <div class="w-full min-h-[48px] rounded-xl bg-stage-850 border border-gold-400/30 text-white text-sm font-bold flex items-center justify-center px-2">A: ${p.A.d}</div>
+                    <div class="w-full min-h-[48px] rounded-xl bg-stage-850 border border-gold-400/30 text-white text-sm font-bold flex items-center justify-center px-2">B: ${p.B.d}</div>
+                    ${selHTML('r7-pair-' + i, [['A', 'A klingt höher'], ['B', 'B klingt höher']])}
+                </div>`).join('');
+            const ht = [['hoch', 'höher'], ['tief', 'tiefer']];
+            document.getElementById('r7-rule-1-wrap').innerHTML = selHTML('r7-rule-1', ht);
+            document.getElementById('r7-rule-2-wrap').innerHTML = selHTML('r7-rule-2', ht);
+        }
+        function checkRoom7() {
+            const xrayOk = r7Inst.every((x, i) => val('r7-t-' + i) === x.t && val('r7-r-' + i) === x.r);
+            const casesOk = r7Cases.every((c, i) => val('r7-case-' + i) === c.a);
+            const pairsOk = r7Pairs.every((p, i) => val('r7-pair-' + i) === p.a);
+            const ruleOk = val('r7-rule-1') === 'hoch' && val('r7-rule-2') === 'tief';
+            if (xrayOk && casesOk && pairsOk && ruleOk) {
+                completeRoom(7);
+                gameState.timerRunning = false; clearInterval(gameState.timerInterval);
+                playFeedbackSound('victory');
+                showVictoryScreen();
+            } else {
+                let m = '❌ Noch nicht ganz. ';
+                if (!xrayOk) m += 'Teil A: Mindestens ein Instrument stimmt nicht. ';
+                if (!casesOk) m += 'Teil B: Prüfe die Fehlersuche. ';
+                if (!pairsOk) m += 'Teil C: Überlege bei den Saiten-Paaren noch einmal. ';
+                if (!ruleOk) m += 'Der Merksatz stimmt noch nicht.';
+                showFeedback(7, false, m);
+            }
+        }
+
+        // ===================== SIEG =====================
+        function showVictoryScreen() {
+            for (let i = 1; i <= 7; i++) document.getElementById(`room-${i}`).classList.add('hidden');
+            document.getElementById('victory-screen').classList.remove('hidden');
+            const used = Math.max(1, TOTAL_TIME - gameState.timeLeft);
+            document.getElementById('cert-time-used').textContent = `${String(Math.floor(used / 60)).padStart(2, '0')}:${String(used % 60).padStart(2, '0')} Min.`;
+            document.getElementById('cert-hints-used').textContent = Object.values(gameState.hintsUsedPerRoom).reduce((a, b) => a + b, 0);
+            document.getElementById('cert-date').textContent = new Date().toLocaleDateString('de-DE');
+            launchConfetti();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        function updateCertificateName() {
+            const v = document.getElementById('student-name-input').value.trim();
+            document.getElementById('cert-student-name').textContent = v || '[Name eintragen]';
+        }
+        function launchConfetti() {
+            const canvas = document.getElementById('confetti-canvas');
+            canvas.classList.remove('hidden');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+            const colors = ['#fbbf24', '#f59e0b', '#e11d48', '#38bdf8', '#34d399', '#fde68a'];
+            const pieces = Array.from({ length: 140 }, () => ({
+                x: Math.random() * canvas.width, y: Math.random() * canvas.height - canvas.height,
+                w: Math.random() * 10 + 6, h: Math.random() * 6 + 4,
+                color: colors[Math.floor(Math.random() * colors.length)],
+                vy: Math.random() * 3.5 + 2, vx: (Math.random() - 0.5) * 2.5,
+                rot: Math.random() * 360, vRot: (Math.random() - 0.5) * 8
+            }));
+            let frame = 0;
+            (function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                pieces.forEach(p => {
+                    p.y += p.vy; p.x += p.vx; p.rot += p.vRot;
+                    ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.rot * Math.PI / 180);
+                    ctx.fillStyle = p.color; ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h); ctx.restore();
+                });
+                if (++frame < 320) requestAnimationFrame(animate); else canvas.classList.add('hidden');
+            })();
+        }
+
+        // ===================== LEXIKON =====================
+        function openLexicon(tab = 'tab-1') {
+            playClickSound();
+            document.getElementById('lexicon-modal').classList.remove('hidden');
+            switchLexiconTab(tab);
+        }
+        function closeLexicon() { playClickSound(); document.getElementById('lexicon-modal').classList.add('hidden'); }
+        function switchLexiconTab(tabId) {
+            document.querySelectorAll('.lex-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.lex-tab-btn').forEach(b => {
+                b.classList.remove('bg-stage-900', 'text-gold-300', 'shadow');
+                b.classList.add('bg-white/75', 'text-stage-900');
+            });
+            document.getElementById(tabId).classList.remove('hidden');
+            const a = document.getElementById(`btn-${tabId}`);
+            a.classList.remove('bg-white/75', 'text-stage-900');
+            a.classList.add('bg-stage-900', 'text-gold-300', 'shadow');
+        }
+        document.getElementById('lexicon-modal').addEventListener('click', e => { if (e.target.id === 'lexicon-modal') closeLexicon(); });
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') closeLexicon();
+            if (gameState.currentRoom === 5 && e.code === 'Space' && !['INPUT', 'SELECT'].includes(document.activeElement.tagName)) {
+                e.preventDefault(); setBreathPress(true);
+            }
+        });
+        document.addEventListener('keyup', e => {
+            if (gameState.currentRoom === 5 && e.code === 'Space') setBreathPress(false);
+        });
+    </script>
+</body>
+</html>
